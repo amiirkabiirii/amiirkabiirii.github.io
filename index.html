@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دکتر سید محمدتقی امیرکبیری</title>
+  <style>
+    :root {
+      --bg: #0b132b;
+      --card-bg: #1c2541;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #48cae4;
+      --border: #3a506b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 36px 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+    .profile-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(72, 202, 228, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(72, 202, 228, 0.25);
+      font-size: 0.85rem;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 18px;
+    }
+    .bio {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 26px;
+      text-align: justify;
+    }
+    .section-heading {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      text-align: right;
+      font-weight: 600;
+    }
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      background: rgba(11, 19, 43, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .btn-link:hover {
+      border-color: var(--accent);
+      background: #253257;
+      transform: translateY(-2px);
+    }
+    .btn-link span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      direction: ltr;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <h1 class="profile-title">سید محمدتقی امیرکبیری</h1>
+    <div class="badge">دانشجوی داروسازی</div>
+
+    <p class="bio">
+      دانشجوی داروسازی با تمرکز بر علوم دارویی، فارماکولوژی و سامانه‌های نوین دارورسانی. این صفحه درگاه ارتباطی و دسترسی مستقیم به صفحات علمی و شبکه‌های اجتماعی من است.
+    </p>
+
+    <div class="section-heading">درگاه‌های ارتباطی</div>
+    <div class="links-list">
+      <a href="mailto:amiirkabiirii@gmail.com" class="btn-link">
+        <strong>پست الکترونیکی</strong>
+        <span>Gmail</span>
+      </a>
+
+      <a href="https://t.me/dramirkabiri" target="_blank" rel="noopener" class="btn-link">
+        <strong>تلگرام</strong>
+        <span>Telegram</span>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
