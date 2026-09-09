@@ -3,124 +3,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دکتر سید محمدتقی امیرکبیری</title>
+  <title>سید محمدتقی امیرکبیری | Mohammad Taqi Amirkabiri</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0b132b;
-      --card-bg: #1c2541;
-      --text: #f8fafc;
+      --bg-dark: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #0ea5e9;
+      --pharm-green: #10b981;
+      --pharm-glow: rgba(16, 185, 129, 0.25);
+      --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --accent: #48cae4;
-      --border: #3a506b;
+      --btn-bg: rgba(30, 41, 59, 0.6);
+      --btn-hover: rgba(51, 65, 85, 0.85);
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
     }
+
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50%);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 24px;
+      padding: 30px 16px;
     }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      max-width: 520px;
+
+    .container {
       width: 100%;
-      padding: 36px 28px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      max-width: 580px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 38px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       text-align: center;
+      position: relative;
     }
-    .profile-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #fff;
+
+    /* نماد داروسازی در گوشه کارت */
+    .pharmacy-icon-badge {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pharm-green);
+      transition: all 0.3s ease;
     }
-    .badge {
+    .pharmacy-icon-badge:hover {
+      box-shadow: 0 0 15px var(--pharm-glow);
+      transform: scale(1.05);
+    }
+
+    /* کادر تصویر پروفایل */
+    .avatar-wrapper {
+      position: relative;
       display: inline-block;
-      background: rgba(72, 202, 228, 0.12);
-      color: var(--accent);
-      border: 1px solid rgba(72, 202, 228, 0.25);
-      font-size: 0.85rem;
-      padding: 5px 14px;
-      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 20px var(--pharm-glow);
+      transition: transform 0.3s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.03);
+    }
+    .rx-symbol {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      background: var(--pharm-green);
+      color: #090d16;
+      font-weight: 800;
+      font-size: 0.8rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #111827;
+    }
+
+    /* نام و عنوان */
+    .name-fa {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .name-en {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      direction: ltr;
       margin-bottom: 18px;
     }
-    .bio {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 26px;
-      text-align: justify;
+
+    /* برچسب‌های بیوگرافی */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
     }
-    .section-heading {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-bottom: 14px;
-      text-align: right;
+    .tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tag.highlight {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #34d399;
       font-weight: 600;
     }
-    .links-list {
+
+    /* دسته‌بندی لینک‌ها */
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: right;
+      margin: 24px 0 10px 0;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-link {
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to left, var(--card-border), transparent);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .link-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 13px 18px;
-      background: rgba(11, 19, 43, 0.7);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
+      padding: 12px 18px;
+      background: var(--btn-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      color: var(--text-main);
       text-decoration: none;
       font-size: 0.95rem;
-      transition: all 0.2s ease;
+      font-weight: 500;
+      transition: all 0.25s ease;
     }
-    .btn-link:hover {
-      border-color: var(--accent);
-      background: #253257;
+    .link-card:hover {
+      background: var(--btn-hover);
+      border-color: rgba(14, 165, 233, 0.4);
       transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .btn-link span {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+
+    .link-card .platform {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      direction: ltr;
+    }
+
+    /* رنگ برچسب پلتفرم‌ها */
+    .badge-tg { background: rgba(0, 136, 204, 0.2); color: #38bdf8; }
+    .badge-ig { background: rgba(225, 48, 108, 0.2); color: #f472b6; }
+    .badge-yt { background: rgba(255, 0, 0, 0.2); color: #f87171; }
+    .badge-et { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: #64748b;
       direction: ltr;
     }
   </style>
 </head>
 <body>
 
-  <main class="card">
-    <h1 class="profile-title">سید محمدتقی امیرکبیری</h1>
-    <div class="badge">دانشجوی داروسازی</div>
+  <div class="container">
+    
+    <!-- نماد هاون و جام داروسازی (Bowl of Hygieia & Rx) -->
+    <div class="pharmacy-icon-badge" title="نماد بین‌المللی داروسازی">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
+        <path d="m8.5 8.5 7 7"></path>
+      </svg>
+    </div>
 
-    <p class="bio">
-      دانشجوی داروسازی با تمرکز بر علوم دارویی، فارماکولوژی و سامانه‌های نوین دارورسانی. این صفحه درگاه ارتباطی و دسترسی مستقیم به صفحات علمی و شبکه‌های اجتماعی من است.
-    </p>
+    <!-- تصویر پروفایل -->
+    <div class="avatar-wrapper">
+      <img src="profile.jpg" alt="سید محمدتقی امیرکبیری" class="profile-img">
+      <div class="rx-symbol" title="Medical Prescription">℞</div>
+    </div>
 
-    <div class="section-heading">درگاه‌های ارتباطی</div>
-    <div class="links-list">
-      <a href="mailto:amiirkabiirii@gmail.com" class="btn-link">
-        <strong>پست الکترونیکی</strong>
-        <span>Gmail</span>
+    <!-- اسامی -->
+    <h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
+    <div class="name-en">Mohammad Taqi Amirkabiri</div>
+
+    <!-- ویژگی‌ها و نشان‌ها -->
+    <div class="tags-container">
+      <span class="tag highlight">💊 دانشجوی دکترای داروسازی | PharmD Student 🎓</span>
+      <span class="tag">🏛 نسل ششم امیرکبیر</span>
+      <span class="tag">🕋 نسل ۳۵ امام حسن علیه السلام</span>
+      <span class="tag">💪🏻 ورزش باستانی / زورخانه</span>
+      <span class="tag" style="direction: ltr;">🌍 Polylingual 🇦🇿🇮🇷🇺🇸🇹🇷🇺🇦🇸🇦</span>
+    </div>
+
+    <!-- بخش ۱: صفحات شخصی -->
+    <div class="section-title">
+      <span>ارتباط مستقیم و صفحات شخصی</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://t.me/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>تلگرام شخصی</span>
+        <span class="platform badge-tg">Telegram</span>
       </a>
-
-      <a href="https://t.me/dramirkabiri" target="_blank" rel="noopener" class="btn-link">
-        <strong>تلگرام</strong>
-        <span>Telegram</span>
+      <a href="https://www.instagram.com/dramirkabiri/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>اینستاگرام</span>
+        <span class="platform badge-ig">Instagram</span>
+      </a>
+      <a href="https://youtube.com/@dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال یوتیوب</span>
+        <span class="platform badge-yt">YouTube</span>
+      </a>
+      <a href="https://eitaa.com/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>ارتباط در ایتا</span>
+        <span class="platform badge-et">Eitaa</span>
       </a>
     </div>
-  </main>
+
+    <!-- بخش ۲: کانال‌های اختصاصی -->
+    <div class="section-title">
+      <span>کانال‌های شخصی و یادداشت‌ها</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://t.me/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال تلگرام</span>
+        <span class="platform badge-tg">Telegram</span>
+      </a>
+      <a href="https://eitaa.com/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال ایتا</span>
+        <span class="platform badge-et">Eitaa</span>
+      </a>
+    </div>
+
+    <!-- بخش ۳: آموزش زبان انگلیسی (Zabantbz) -->
+    <div class="section-title">
+      <span>آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://t.me/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال Zabantbz در تلگرام</span>
+        <span class="platform badge-tg">Telegram</span>
+      </a>
+      <a href="https://eitaa.com/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال Zabantbz در ایتا</span>
+        <span class="platform badge-et">Eitaa</span>
+      </a>
+      <a href="https://t.me/zabantbzgr" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>گروه رفع اشکال زبان در تلگرام</span>
+        <span class="platform badge-tg">Telegram</span>
+      </a>
+      <a href="https://eitaa.com/joinchat/1822360005Ce1ab2c8e89" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>گروه رفع اشکال زبان در ایتا</span>
+        <span class="platform badge-et">Eitaa</span>
+      </a>
+    </div>
+
+    <!-- بخش ۴: تلاوت‌های قرآن -->
+    <div class="section-title">
+      <span>تلاوت‌های استاد عبدالباسط</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://t.me/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال تلاوت‌ها در تلگرام</span>
+        <span class="platform badge-tg">Telegram</span>
+      </a>
+      <a href="https://eitaa.com/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
+        <span>کانال تلاوت‌ها در ایتا</span>
+        <span class="platform badge-et">Eitaa</span>
+      </a>
+    </div>
+
+    <footer>
+      &copy; Mohammad Taqi Amirkabiri | dramirkabiri.ir
+    </footer>
+
+  </div>
 
 </body>
 </html>
