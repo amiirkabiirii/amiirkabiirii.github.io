@@ -120,9 +120,11 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: 70% 20%;
       border: 3px solid rgba(16, 185, 129, 0.4);
       box-shadow: 0 0 20px var(--pharm-glow);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .profile-img:hover {
       transform: scale(1.03);
@@ -156,6 +158,14 @@
       font-weight: 500;
       color: var(--text-muted);
       direction: ltr;
+      margin-bottom: 18px;
+    }
+
+    .professional-title {
+      color: var(--pharm-green);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 6px;
       margin-bottom: 18px;
     }
 
@@ -251,97 +261,65 @@
       color: #64748b;
       direction: ltr;
     }
-    /* Clickable profile photo */
-.profile-img {
-  cursor: pointer;
-}
 
-/* Full-screen photo viewer */
-/* Full-screen photo viewer */
-.photo-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.92);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  overflow: hidden;
-}
+    /* Full-screen photo viewer */
+    .photo-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      direction: ltr;
+    }
 
-.photo-modal.show {
-  display: flex;
-}
+    .photo-modal.show {
+      display: flex;
+    }
 
-/* Enlarged profile photo */
-.photo-modal img {
-  display: block;
-  max-width: calc(100vw - 40px);
-  max-height: calc(100vh - 40px);
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-}
+    /* Enlarged profile photo */
+    .photo-modal img {
+      display: block;
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      margin: auto;
+    }
 
-/* Close button */
-.photo-close {
-  position: fixed;
-  top: 20px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 38px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s ease;
-}
+    /* Close button */
+    .photo-close {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 32px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+    }
 
-.photo-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.08);
-}
-
-.photo-close {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-  font-size: 36px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 10000;
-  transition: 0.2s ease;
-}
-
-.photo-close:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.08);
-}
-    .professional-title {
-  color: var(--pharm-green);
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-top: 6px;
-  margin-bottom: 18px;
-}
+    .photo-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
+    }
   </style>
 </head>
 <body>
@@ -358,36 +336,36 @@
 
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
-  <img
-    src="profile.jpg"
-    alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
-    class="profile-img"
-    id="profileImage"
-    onclick="openPhoto()"
-  >
-  <div class="rx-symbol" title="Medical Prescription">℞</div>
-</div>
+      <img
+        src="profile.jpg"
+        alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
+        class="profile-img"
+        id="profileImage"
+        onclick="openPhoto()"
+      >
+      <div class="rx-symbol" title="Medical Prescription">℞</div>
+    </div>
 
-<!-- Full-screen photo viewer -->
-<div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
-  <button class="photo-close" onclick="closePhoto(event)" aria-label="Close">
-    &times;
-  </button>
+    <!-- Full-screen photo viewer -->
+    <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
+      <button class="photo-close" onclick="closePhoto(event)" aria-label="Close">
+        &times;
+      </button>
 
-  <img
-    id="expandedPhoto"
-    src="profile.jpg"
-    alt="سید محمدتقی امیرکبیری"
-  >
-</div>
+      <img
+        id="expandedPhoto"
+        src="profile.jpg"
+        alt="سید محمدتقی امیرکبیری"
+      >
+    </div>
 
     <!-- اسامی -->
-<h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
-<div class="name-en">Mohammad Taqi Amirkabiri</div>
+    <h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
+    <div class="name-en">Mohammad Taqi Amirkabiri</div>
 
-<div class="professional-title">
-  PharmD Student | دانشجوی دکترای داروسازی
-</div>
+    <div class="professional-title">
+      PharmD Student | دانشجوی دکترای داروسازی
+    </div>
 
     <!-- ویژگی‌ها و نشان‌ها -->
     <div class="tags-container">
@@ -483,6 +461,7 @@
     </footer>
 
   </div>
+
 <script>
 function openPhoto() {
   document.getElementById("photoModal").classList.add("show");
