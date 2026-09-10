@@ -257,31 +257,61 @@
 }
 
 /* Full-screen photo viewer */
+/* Full-screen photo viewer */
 .photo-modal {
   display: none;
   position: fixed;
   z-index: 9999;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.92);
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  cursor: zoom-out;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .photo-modal.show {
   display: flex;
 }
 
+/* Enlarged profile photo */
 .photo-modal img {
-  max-width: 90vw;
-  max-height: 90vh;
+  display: block;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
   width: auto;
   height: auto;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  cursor: default;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Close button */
+.photo-close {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 38px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.photo-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
 }
 
 .photo-close {
