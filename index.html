@@ -12,6 +12,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "سید محمدتقی امیرکبیری",
+  "givenName": "محمدتقی",
+  "familyName": "امیرکبیری",
+  "alternateName": [
+    "محمد تقی امیرکبیری",
+    "محمد تقی امیر کبیری",
+    "محمدتقی امیر کبیری",
+    "سید محمد تقی امیرکبیری",
+    "سید محمد تقی امیر کبیری",
+    "Mohammad Taqi Amirkabiri",
+    "Mohammad Taqi Amir Kabiri"
+  ],
+  "url": "https://dramirkabiri.ir/",
+  "image": "https://dramirkabiri.ir/profile.jpg",
+  "jobTitle": "PharmD Student",
+  "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
+  "sameAs": [
+    "https://instagram.com/dramirkabiri/",
+    "https://youtube.com/@dramirkabiri",
+    "https://t.me/Dramirkabiri"
+  ]
+}
+</script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <style>
     :root {
@@ -224,6 +251,67 @@
       color: #64748b;
       direction: ltr;
     }
+    /* Clickable profile photo */
+.profile-img {
+  cursor: pointer;
+}
+
+/* Full-screen photo viewer */
+.photo-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  cursor: zoom-out;
+}
+
+.photo-modal.show {
+  display: flex;
+}
+
+.photo-modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.photo-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+  transition: 0.2s ease;
+}
+
+.photo-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+    .professional-title {
+  color: var(--pharm-green);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
   </style>
 </head>
 <body>
@@ -240,13 +328,36 @@
 
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
-      <img src="profile.jpg" alt="سید محمدتقی امیرکبیری" class="profile-img">
-      <div class="rx-symbol" title="Medical Prescription">℞</div>
-    </div>
+  <img
+    src="profile.jpg"
+    alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
+    class="profile-img"
+    id="profileImage"
+    onclick="openPhoto()"
+  >
+  <div class="rx-symbol" title="Medical Prescription">℞</div>
+</div>
+
+<!-- Full-screen photo viewer -->
+<div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
+  <button class="photo-close" onclick="closePhoto(event)" aria-label="Close">
+    &times;
+  </button>
+
+  <img
+    id="expandedPhoto"
+    src="profile.jpg"
+    alt="سید محمدتقی امیرکبیری"
+  >
+</div>
 
     <!-- اسامی -->
-    <h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
-    <div class="name-en">Mohammad Taqi Amirkabiri</div>
+<h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
+<div class="name-en">Mohammad Taqi Amirkabiri</div>
+
+<div class="professional-title">
+  PharmD Student | دانشجوی دکترای داروسازی
+</div>
 
     <!-- ویژگی‌ها و نشان‌ها -->
     <div class="tags-container">
@@ -342,6 +453,29 @@
     </footer>
 
   </div>
+<script>
+function openPhoto() {
+  document.getElementById("photoModal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
 
+function closePhoto(event) {
+  if (
+    event.target.id === "photoModal" ||
+    event.target.classList.contains("photo-close")
+  ) {
+    document.getElementById("photoModal").classList.remove("show");
+    document.body.style.overflow = "";
+  }
+}
+
+/* Close with Escape key */
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    document.getElementById("photoModal").classList.remove("show");
+    document.body.style.overflow = "";
+  }
+});
+</script>
 </body>
 </html>
