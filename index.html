@@ -262,7 +262,7 @@
       direction: ltr;
     }
 
-    /* Full-screen photo viewer */
+    /* پاپ‌آپ در وسط صفحه با ابعاد مشخص */
     .photo-modal {
       display: none;
       position: fixed;
@@ -270,10 +270,12 @@
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
       box-sizing: border-box;
       direction: ltr;
     }
@@ -282,43 +284,66 @@
       display: flex;
     }
 
-    /* Enlarged profile photo */
-    .photo-modal img {
-      display: block;
-      max-width: 90vw;
-      max-height: 85vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-      margin: auto;
+    .photo-dialog {
+      position: relative;
+      background: rgba(17, 24, 39, 0.95);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px var(--pharm-glow);
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 420px;
+      width: 90vw;
+      box-sizing: border-box;
+      animation: modalFadeIn 0.25s ease-out;
     }
 
-    /* Close button */
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .photo-modal img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+
+    /* دکمه بستن پاپ‌آپ */
     .photo-close {
-      position: fixed;
-      top: 20px;
-      right: 25px;
-      width: 48px;
-      height: 48px;
-      border: none;
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--card-border);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      font-size: 32px;
+      background: #1e293b;
+      color: #ffffff;
+      font-size: 22px;
       line-height: 1;
       cursor: pointer;
-      z-index: 10000;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     .photo-close:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: scale(1.08);
+      background: #ef4444;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -346,17 +371,18 @@
       <div class="rx-symbol" title="Medical Prescription">℞</div>
     </div>
 
-    <!-- Full-screen photo viewer -->
+    <!-- پاپ‌آپ تصویر پروفایل در وسط صفحه -->
     <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
-      <button class="photo-close" onclick="closePhoto(event)" aria-label="Close">
-        &times;
-      </button>
-
-      <img
-        id="expandedPhoto"
-        src="profile.jpg"
-        alt="سید محمدتقی امیرکبیری"
-      >
+      <div class="photo-dialog" onclick="event.stopPropagation()">
+        <button class="photo-close" onclick="forceClosePhoto()" aria-label="Close">
+          &times;
+        </button>
+        <img
+          id="expandedPhoto"
+          src="profile.jpg"
+          alt="سید محمدتقی امیرکبیری"
+        >
+      </div>
     </div>
 
     <!-- اسامی -->
@@ -468,21 +494,21 @@ function openPhoto() {
   document.body.style.overflow = "hidden";
 }
 
+function forceClosePhoto() {
+  document.getElementById("photoModal").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
 function closePhoto(event) {
-  if (
-    event.target.id === "photoModal" ||
-    event.target.classList.contains("photo-close")
-  ) {
-    document.getElementById("photoModal").classList.remove("show");
-    document.body.style.overflow = "";
+  if (event.target.id === "photoModal") {
+    forceClosePhoto();
   }
 }
 
 /* Close with Escape key */
 document.addEventListener("keydown", function(event) {
   if (event.key === "Escape") {
-    document.getElementById("photoModal").classList.remove("show");
-    document.body.style.overflow = "";
+    forceClosePhoto();
   }
 });
 </script>
