@@ -29,7 +29,7 @@
     "Mohammad Taqi Amir Kabiri"
   ],
   "url": "https://dramirkabiri.ir/",
-  "image": "https://dramirkabiri.ir/profile.jpg",
+  "image": "https://dramirkabiri.ir/profile.webp",
   "jobTitle": "PharmD Student",
   "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
   "sameAs": [
@@ -262,20 +262,23 @@
       direction: ltr;
     }
 
-    /* پاپ‌آپ در وسط صفحه با ابعاد مشخص */
+    /* پاپ‌آپ سراسری در کل صفحه تب مرورگر */
     .photo-modal {
       display: none;
       position: fixed;
-      z-index: 9999;
-      inset: 0;
+      z-index: 99999;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.82);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 20px 16px;
       box-sizing: border-box;
       direction: ltr;
     }
@@ -284,18 +287,20 @@
       display: flex;
     }
 
+    /* کادر نمایش عکس در موقعیت کمی بالاتر و کاملاً در مرکز افقی */
     .photo-dialog {
       position: relative;
       background: rgba(17, 24, 39, 0.95);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px var(--pharm-glow);
-      padding: 12px;
+      padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       max-width: 420px;
       width: 90vw;
+      margin-bottom: 50px; /* انتقال متوازن کادر به سمت بالاتر */
       box-sizing: border-box;
       animation: modalFadeIn 0.25s ease-out;
     }
@@ -315,7 +320,7 @@
       width: 100%;
       height: auto;
       max-height: 70vh;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 14px;
       display: block;
     }
@@ -323,8 +328,8 @@
     /* دکمه بستن پاپ‌آپ */
     .photo-close {
       position: absolute;
-      top: -14px;
-      right: -14px;
+      top: -12px;
+      right: -12px;
       width: 36px;
       height: 36px;
       border: 1px solid var(--card-border);
@@ -362,27 +367,13 @@
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
       <img
-        src="profile.jpg"
+        src="profile.webp"
         alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
         class="profile-img"
         id="profileImage"
         onclick="openPhoto()"
       >
       <div class="rx-symbol" title="Medical Prescription">℞</div>
-    </div>
-
-    <!-- پاپ‌آپ تصویر پروفایل در وسط صفحه -->
-    <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
-      <div class="photo-dialog" onclick="event.stopPropagation()">
-        <button class="photo-close" onclick="forceClosePhoto()" aria-label="Close">
-          &times;
-        </button>
-        <img
-          id="expandedPhoto"
-          src="profile.jpg"
-          alt="سید محمدتقی امیرکبیری"
-        >
-      </div>
     </div>
 
     <!-- اسامی -->
@@ -486,6 +477,20 @@
       &copy; Mohammad Taqi Amirkabiri | dramirkabiri.ir
     </footer>
 
+  </div>
+
+  <!-- پاپ‌آپ تصویر پروفایل در وسط و بالای تب مرورگر -->
+  <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
+    <div class="photo-dialog" onclick="event.stopPropagation()">
+      <button class="photo-close" onclick="forceClosePhoto()" aria-label="Close">
+        &times;
+      </button>
+      <img
+        id="expandedPhoto"
+        src="profile.webp"
+        alt="سید محمدتقی امیرکبیری"
+      >
+    </div>
   </div>
 
 <script>
