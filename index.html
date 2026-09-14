@@ -9,10 +9,36 @@
   <meta name="author" content="سید محمدتقی امیرکبیری">
   <link rel="canonical" href="https://dramirkabiri.ir/">
   <meta name="google-site-verification" content="U_xTAfZRfRdbm7uTeYPErMZ2hNEL2MeinzC6LI-7Jtw" />
+
+  <!-- Google High-Resolution Image & Robots Directives -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="googlebot-image" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph & Social Meta Tags -->
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="سید محمدتقی امیرکبیری | Mohammad Taqi Amirkabiri">
+  <meta property="og:description" content="وب‌سایت رسمی سید محمدتقی امیرکبیری؛ دانشجوی داروسازی، پژوهشگر و مدرس. Mohammad Taqi Amirkabiri official website.">
+  <meta property="og:url" content="https://dramirkabiri.ir/">
+  <meta property="og:site_name" content="سید محمدتقی امیرکبیری">
+  <meta property="og:image" content="https://dramirkabiri.ir/profile.webp">
+  <meta property="og:image:secure_url" content="https://dramirkabiri.ir/profile.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="سید محمدتقی امیرکبیری | Mohammad Taqi Amirkabiri">
+  <meta name="twitter:description" content="وب‌سایت رسمی سید محمدتقی امیرکبیری؛ دانشجوی داروسازی، پژوهشگر و مدرس.">
+  <meta name="twitter:image" content="https://dramirkabiri.ir/profile.webp">
+  <link rel="image_src" href="https://dramirkabiri.ir/profile.webp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+  
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +56,14 @@
     "Mohammad Taqi Amir Kabiri"
   ],
   "url": "https://dramirkabiri.ir/",
-  "image": "https://dramirkabiri.ir/profile.webp",
+  "image": {
+    "@type": "ImageObject",
+    "@id": "https://dramirkabiri.ir/#profileImage",
+    "url": "https://dramirkabiri.ir/profile.webp",
+    "contentUrl": "https://dramirkabiri.ir/profile.webp",
+    "caption": "سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی",
+    "inLanguage": "fa"
+  },
   "jobTitle": "PharmD Student",
   "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
   "sameAs": [
@@ -40,7 +73,9 @@
   ]
 }
 </script>
+
   <link rel="icon" type="image/png" href="/favicon.png">
+
   <style>
     :root {
       --bg-dark: #090d16;
@@ -309,7 +344,7 @@
       justify-content: center;
       max-width: 420px;
       width: 90vw;
-      margin-bottom: 50px; /* انتقال متوازن کادر به سمت بالاتر */
+      margin-bottom: 50px;
       box-sizing: border-box;
       animation: modalFadeIn 0.25s ease-out;
     }
@@ -376,10 +411,13 @@
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
       <img
-        src="profile.webp"
+        src="https://dramirkabiri.ir/profile.webp"
         alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
         class="profile-img"
         id="profileImage"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
         onclick="openPhoto()"
       >
       <div class="rx-symbol" title="Medical Prescription">℞</div>
@@ -503,8 +541,10 @@
       </button>
       <img
         id="expandedPhoto"
-        src="profile.webp"
+        src="https://dramirkabiri.ir/profile.webp"
         alt="سید محمدتقی امیرکبیری"
+        loading="lazy"
+        decoding="async"
       >
     </div>
   </div>
