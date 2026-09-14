@@ -7,12 +7,31 @@
   <meta name="description" content="وب‌سایت رسمی سید محمدتقی امیرکبیری؛ دانشجوی داروسازی، پژوهشگر و مدرس. Mohammad Taqi Amirkabiri official website.">
   <meta name="keywords" content="سید محمدتقی امیرکبیری, محمدتقی امیرکبیری, Mohammad Taqi Amirkabiri, dramirkabiri">
   <meta name="author" content="سید محمدتقی امیرکبیری">
+
+  <!-- Tells Google to serve full high-resolution previews instead of blurry thumbnails -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="سید محمدتقی امیرکبیری | Mohammad Taqi Amirkabiri">
+  <meta property="og:description" content="وب‌سایت رسمی سید محمدتقی امیرکبیری؛ دانشجوی داروسازی، پژوهشگر و مدرس.">
+  <meta property="og:url" content="https://dramirkabiri.ir/">
+  <meta property="og:image" content="https://dramirkabiri.ir/profile-hd.webp">
+  <meta property="og:image:secure_url" content="https://dramirkabiri.ir/profile-hd.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="سید محمدتقی امیرکبیری">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dramirkabiri.ir/profile-hd.webp">
+
   <link rel="canonical" href="https://dramirkabiri.ir/">
   <meta name="google-site-verification" content="U_xTAfZRfRdbm7uTeYPErMZ2hNEL2MeinzC6LI-7Jtw" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+  
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +49,12 @@
     "Mohammad Taqi Amir Kabiri"
   ],
   "url": "https://dramirkabiri.ir/",
-  "image": "https://dramirkabiri.ir/profile.webp",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://dramirkabiri.ir/profile-hd.webp",
+    "contentUrl": "https://dramirkabiri.ir/profile-hd.webp",
+    "caption": "سید محمدتقی امیرکبیری"
+  },
   "jobTitle": "PharmD Student",
   "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
   "sameAs": [
@@ -296,7 +320,7 @@
       display: flex;
     }
 
-    /* کادر نمایش عکس در موقعیت کمی بالاتر و کاملاً در مرکز افقی */
+    /* کادر نمایش عکس */
     .photo-dialog {
       position: relative;
       background: rgba(17, 24, 39, 0.95);
@@ -309,7 +333,7 @@
       justify-content: center;
       max-width: 420px;
       width: 90vw;
-      margin-bottom: 50px; /* انتقال متوازن کادر به سمت بالاتر */
+      margin-bottom: 50px;
       box-sizing: border-box;
       animation: modalFadeIn 0.25s ease-out;
     }
@@ -365,7 +389,7 @@
 
   <div class="container">
     
-    <!-- نماد هاون و جام داروسازی (Bowl of Hygieia & Rx) -->
+    <!-- نماد داروسازی -->
     <div class="pharmacy-icon-badge" title="نماد بین‌المللی داروسازی">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
@@ -376,11 +400,12 @@
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
       <img
-        src="profile.webp"
+        src="profile-hd.webp"
         alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
         class="profile-img"
         id="profileImage"
         onclick="openPhoto()"
+        loading="eager"
       >
       <div class="rx-symbol" title="Medical Prescription">℞</div>
     </div>
@@ -495,7 +520,7 @@
 
   </div>
 
-  <!-- پاپ‌آپ تصویر پروفایل در وسط و بالای تب مرورگر -->
+  <!-- پاپ‌آپ تصویر پروفایل -->
   <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
     <div class="photo-dialog" onclick="event.stopPropagation()">
       <button class="photo-close" onclick="forceClosePhoto()" aria-label="Close">
@@ -503,7 +528,7 @@
       </button>
       <img
         id="expandedPhoto"
-        src="profile.webp"
+        src="profile-hd.webp"
         alt="سید محمدتقی امیرکبیری"
       >
     </div>
