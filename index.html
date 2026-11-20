@@ -130,6 +130,32 @@
       position: relative;
     }
 
+    /* دکمه تغییر زبان در گوشه بالا-راست */
+    .lang-toggle-btn {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 12px;
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      color: #38bdf8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      direction: ltr;
+    }
+    .lang-toggle-btn:hover {
+      background: rgba(14, 165, 233, 0.22);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.25);
+      transform: scale(1.04);
+    }
+
     /* نماد داروسازی در گوشه کارت */
     .pharmacy-icon-badge {
       position: absolute;
@@ -156,6 +182,7 @@
       position: relative;
       display: inline-block;
       margin-bottom: 16px;
+      margin-top: 12px;
     }
     .profile-img {
       width: 150px;
@@ -230,12 +257,6 @@
       align-items: center;
       gap: 6px;
     }
-    .tag.highlight {
-      background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.35);
-      color: #34d399;
-      font-weight: 600;
-    }
 
     .fi {
       width: 1.3em;
@@ -250,17 +271,23 @@
       font-size: 0.9rem;
       font-weight: 700;
       color: var(--primary);
-      text-align: right;
+      text-align: start;
       margin: 24px 0 10px 0;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .section-title::after {
+    html[dir="rtl"] .section-title::after {
       content: "";
       flex: 1;
       height: 1px;
       background: linear-gradient(to left, var(--card-border), transparent);
+    }
+    html[dir="ltr"] .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--card-border), transparent);
     }
 
     .links-grid {
@@ -282,12 +309,48 @@
       font-size: 0.95rem;
       font-weight: 500;
       transition: all 0.25s ease;
+      cursor: pointer;
+      width: 100%;
     }
     .link-card:hover {
       background: var(--btn-hover);
       border-color: rgba(14, 165, 233, 0.4);
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* استایل دکمه ذخیره مخاطب */
+    .vcard-btn {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(14, 165, 233, 0.14));
+      border-color: rgba(16, 185, 129, 0.38);
+    }
+    .vcard-btn:hover {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.28), rgba(14, 165, 233, 0.24));
+      border-color: rgba(16, 185, 129, 0.65);
+    }
+
+    .card-right-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+    .link-card:hover .copy-mini-btn {
+      color: #ffffff;
+      background: rgba(234, 67, 53, 0.22);
+      border-color: rgba(234, 67, 53, 0.4);
     }
 
     .link-card .platform {
@@ -299,6 +362,7 @@
     }
 
     /* رنگ برچسب پلتفرم‌ها */
+    .badge-vcf { background: rgba(16, 185, 129, 0.22); color: #34d399; }
     .badge-tg { background: rgba(0, 136, 204, 0.2); color: #38bdf8; }
     .badge-ig { background: rgba(225, 48, 108, 0.2); color: #f472b6; }
     .badge-yt { background: rgba(255, 0, 0, 0.2); color: #f87171; }
@@ -310,6 +374,33 @@
       font-size: 0.78rem;
       color: #64748b;
       direction: ltr;
+    }
+
+    /* اعلان کپی شدن ایمیل (Toast) */
+    .toast-notification {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #34d399;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 18px var(--pharm-glow);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s ease;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-notification.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     /* پاپ‌آپ سراسری در کل صفحه تب مرورگر */
@@ -337,7 +428,6 @@
       display: flex;
     }
 
-    /* کادر نمایش عکس در موقعیت کمی بالاتر و کاملاً در مرکز افقی */
     .photo-dialog {
       position: relative;
       background: rgba(17, 24, 39, 0.95);
@@ -375,7 +465,6 @@
       display: block;
     }
 
-    /* دکمه بستن پاپ‌آپ */
     .photo-close {
       position: absolute;
       top: -12px;
@@ -406,6 +495,16 @@
 
   <div class="container">
     
+    <!-- دکمه تغییر زبان FA / EN -->
+    <button type="button" class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" aria-label="Switch Language">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span id="langLabel">EN</span>
+    </button>
+
     <!-- نماد هاون و جام داروسازی (Bowl of Hygieia & Rx) -->
     <div class="pharmacy-icon-badge" title="نماد بین‌المللی داروسازی">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -417,7 +516,7 @@
     <!-- تصویر پروفایل -->
     <div class="avatar-wrapper">
       <img
-        src="https://dramirkabiri.ir/profile.webp"
+        src="profile.webp"
         alt="سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی"
         class="profile-img"
         id="profileImage"
@@ -430,8 +529,8 @@
     </div>
 
     <!-- اسامی -->
-    <h1 class="name-fa">سید محمدتقی امیرکبیری</h1>
-    <div class="name-en">Mohammad Taqi Amirkabiri</div>
+    <h1 class="name-fa" id="mainName">سید محمدتقی امیرکبیری</h1>
+    <div class="name-en" id="subName">Mohammad Taqi Amirkabiri</div>
 
     <div class="professional-title">
       PharmD Student | دانشجوی دکترای داروسازی
@@ -447,87 +546,103 @@
         <span class="fi fi-tr" title="Turkish"></span>
         <span class="fi fi-sa" title="Arabic"></span>
       </span>
-      <span class="tag">💪🏻 ورزش باستانی / زورخانه</span>
-      <span class="tag">🏛 نسل ۶ام امیرکبیر</span>
-      <span class="tag">🕋 نسل ۳۵ام امام حسن علیه السلام</span>
+      <span class="tag" data-fa="💪🏻 ورزش باستانی / زورخانه" data-en="💪🏻 Zurkhaneh / Traditional Sport">💪🏻 ورزش باستانی / زورخانه</span>
+      <span class="tag" data-fa="🏛 نسل ۶ام امیرکبیر" data-en="🏛 6th Generation of Amir Kabir">🏛 نسل ۶ام امیرکبیر</span>
+      <span class="tag" data-fa="🕋 نسل ۳۵ام امام حسن علیه السلام" data-en="🕋 35th Generation of Imam Hasan (AS)">🕋 نسل ۳۵ام امام حسن علیه السلام</span>
     </div>
 
     <!-- بخش ۱: صفحات شخصی -->
     <div class="section-title">
-      <span>ارتباط مستقیم و صفحات شخصی</span>
+      <span data-fa="ارتباط مستقیم و صفحات شخصی" data-en="Direct Contact & Personal Profiles">ارتباط مستقیم و صفحات شخصی</span>
     </div>
     <div class="links-grid">
-      <a href="mailto:amiirkabiirii@gmail.com" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>پست الکترونیکی (جیمیل)</span>
-        <span class="platform badge-gm">Gmail</span>
+      <!-- دکمه ذخیره در مخاطبین (vCard) -->
+      <button type="button" onclick="downloadVCard()" class="link-card vcard-btn">
+        <span data-fa="📇 ذخیره در مخاطبین (کارت ویزیت)" data-en="📇 Save Contact (vCard)">📇 ذخیره در مخاطبین (کارت ویزیت)</span>
+        <span class="platform badge-vcf">vCard .vcf</span>
+      </button>
+
+      <!-- جیمیل با قابلیت کپی خودکار + باز کردن ایمیل -->
+      <a href="mailto:amiirkabiirii@gmail.com" onclick="handleEmailClick(event)" class="link-card">
+        <span data-fa="پست الکترونیکی (جیمیل)" data-en="Email (Gmail)">پست الکترونیکی (جیمیل)</span>
+        <span class="card-right-group">
+          <span class="copy-mini-btn" title="کپی کردن ایمیل / Copy Email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </span>
+          <span class="platform badge-gm">Gmail</span>
+        </span>
       </a>
+
       <a href="https://t.me/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>تلگرام شخصی</span>
+        <span data-fa="تلگرام شخصی" data-en="Personal Telegram">تلگرام شخصی</span>
         <span class="platform badge-tg">Telegram</span>
       </a>
       <a href="https://www.instagram.com/dramirkabiri/" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>اینستاگرام</span>
+        <span data-fa="اینستاگرام" data-en="Instagram">اینستاگرام</span>
         <span class="platform badge-ig">Instagram</span>
       </a>
       <a href="https://youtube.com/@dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال یوتیوب</span>
+        <span data-fa="کانال یوتیوب" data-en="YouTube Channel">کانال یوتیوب</span>
         <span class="platform badge-yt">YouTube</span>
       </a>
       <a href="https://eitaa.com/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>ارتباط در ایتا</span>
+        <span data-fa="ارتباط در ایتا" data-en="Contact on Eitaa">ارتباط در ایتا</span>
         <span class="platform badge-et">Eitaa</span>
       </a>
     </div>
 
     <!-- بخش ۲: کانال‌های اختصاصی -->
     <div class="section-title">
-      <span>کانال‌های شخصی و یادداشت‌ها</span>
+      <span data-fa="کانال‌های شخصی و یادداشت‌ها" data-en="Personal Channels & Notes">کانال‌های شخصی و یادداشت‌ها</span>
     </div>
     <div class="links-grid">
       <a href="https://t.me/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال تلگرام</span>
+        <span data-fa="کانال تلگرام" data-en="Telegram Channel">کانال تلگرام</span>
         <span class="platform badge-tg">Telegram</span>
       </a>
       <a href="https://eitaa.com/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال ایتا</span>
+        <span data-fa="کانال ایتا" data-en="Eitaa Channel">کانال ایتا</span>
         <span class="platform badge-et">Eitaa</span>
       </a>
     </div>
 
     <!-- بخش ۳: آموزش زبان انگلیسی (Zabantbz) -->
     <div class="section-title">
-      <span>آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)</span>
+      <span data-fa="آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)" data-en="English Language Learning & Q&A (ZabanTBZ)">آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)</span>
     </div>
     <div class="links-grid">
       <a href="https://t.me/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال Zabantbz در تلگرام</span>
+        <span data-fa="کانال Zabantbz در تلگرام" data-en="Zabantbz Telegram Channel">کانال Zabantbz در تلگرام</span>
         <span class="platform badge-tg">Telegram</span>
       </a>
       <a href="https://eitaa.com/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال Zabantbz در ایتا</span>
+        <span data-fa="کانال Zabantbz در ایتا" data-en="Zabantbz Eitaa Channel">کانال Zabantbz در ایتا</span>
         <span class="platform badge-et">Eitaa</span>
       </a>
       <a href="https://t.me/zabantbzgr" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>گروه رفع اشکال زبان در تلگرام</span>
+        <span data-fa="گروه رفع اشکال زبان در تلگرام" data-en="English Q&A Group on Telegram">گروه رفع اشکال زبان در تلگرام</span>
         <span class="platform badge-tg">Telegram</span>
       </a>
       <a href="https://eitaa.com/joinchat/1822360005Ce1ab2c8e89" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>گروه رفع اشکال زبان در ایتا</span>
+        <span data-fa="گروه رفع اشکال زبان در ایتا" data-en="English Q&A Group on Eitaa">گروه رفع اشکال زبان در ایتا</span>
         <span class="platform badge-et">Eitaa</span>
       </a>
     </div>
 
     <!-- بخش ۴: تلاوت‌های قرآن -->
     <div class="section-title">
-      <span>تلاوت‌های استاد عبدالباسط</span>
+      <span data-fa="تلاوت‌های استاد عبدالباسط" data-en="Quran Recitations by Master Abdul Basit">تلاوت‌های استاد عبدالباسط</span>
     </div>
     <div class="links-grid">
       <a href="https://t.me/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال تلاوت‌ها در تلگرام</span>
+        <span data-fa="کانال تلاوت‌ها در تلگرام" data-en="Recitations Channel on Telegram">کانال تلاوت‌ها در تلگرام</span>
         <span class="platform badge-tg">Telegram</span>
       </a>
       <a href="https://eitaa.com/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
-        <span>کانال تلاوت‌ها در ایتا</span>
+        <span data-fa="کانال تلاوت‌ها در ایتا" data-en="Recitations Channel on Eitaa">کانال تلاوت‌ها در ایتا</span>
         <span class="platform badge-et">Eitaa</span>
       </a>
     </div>
@@ -538,6 +653,14 @@
 
   </div>
 
+  <!-- اعلان Toast -->
+  <div id="toast" class="toast-notification" role="status" aria-live="polite">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">ایمیل کپی شد!</span>
+  </div>
+
   <!-- پاپ‌آپ تصویر پروفایل در وسط و بالای تب مرورگر -->
   <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
     <div class="photo-dialog" onclick="event.stopPropagation()">
@@ -546,7 +669,7 @@
       </button>
       <img
         id="expandedPhoto"
-        src="https://dramirkabiri.ir/profile.webp"
+        src="profile.webp"
         alt="سید محمدتقی امیرکبیری"
         loading="lazy"
         decoding="async"
@@ -555,6 +678,91 @@
   </div>
 
 <script>
+let currentLang = "fa";
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  const toastText = document.getElementById("toastText");
+  toastText.textContent = message;
+  toast.classList.add("show");
+
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2800);
+}
+
+/* 1. دانلود کارت ویزیت (vCard .vcf) */
+function downloadVCard() {
+  const vcardLines = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "N:Amirkabiri;Mohammad Taqi;;;",
+    "FN:Mohammad Taqi Amirkabiri",
+    "TITLE:PharmD Student",
+    "EMAIL;TYPE=INTERNET:amiirkabiirii@gmail.com",
+    "URL:https://dramirkabiri.ir/",
+    "END:VCARD"
+  ];
+  const blob = new Blob([vcardLines.join("\r\n")], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Mohammad_Taqi_Amirkabiri.vcf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast(currentLang === "fa" ? "فایل مخاطب دانلود شد!" : "Contact vCard downloaded!");
+}
+
+/* 2. کپی ایمیل در کلیپ‌بورد + باز کردن اپلیکیشن ایمیل */
+function handleEmailClick(event) {
+  const email = "amiirkabiirii@gmail.com";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).catch(() => {});
+  } else {
+    const tempInput = document.createElement("input");
+    tempInput.value = email;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+  showToast(currentLang === "fa" ? "ایمیل کپی شد! (amiirkabiirii@gmail.com)" : "Email copied! (amiirkabiirii@gmail.com)");
+}
+
+/* 3. تغییر زبان دوگانه (FA / EN) */
+function toggleLanguage() {
+  currentLang = currentLang === "fa" ? "en" : "fa";
+  const htmlEl = document.documentElement;
+  htmlEl.setAttribute("lang", currentLang);
+  htmlEl.setAttribute("dir", currentLang === "fa" ? "rtl" : "ltr");
+
+  document.getElementById("langLabel").textContent = currentLang === "fa" ? "EN" : "FA";
+
+  const mainName = document.getElementById("mainName");
+  const subName = document.getElementById("subName");
+  if (currentLang === "en") {
+    mainName.textContent = "Mohammad Taqi Amirkabiri";
+    mainName.style.direction = "ltr";
+    subName.textContent = "سید محمدتقی امیرکبیری";
+    subName.style.direction = "rtl";
+  } else {
+    mainName.textContent = "سید محمدتقی امیرکبیری";
+    mainName.style.direction = "rtl";
+    subName.textContent = "Mohammad Taqi Amirkabiri";
+    subName.style.direction = "ltr";
+  }
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(el => {
+    el.textContent = el.getAttribute(currentLang === "fa" ? "data-fa" : "data-en");
+  });
+}
+
+/* پاپ‌آپ تصویر پروفایل */
 function openPhoto() {
   document.getElementById("photoModal").classList.add("show");
   document.body.style.overflow = "hidden";
@@ -571,7 +779,6 @@ function closePhoto(event) {
   }
 }
 
-/* Close with Escape key */
 document.addEventListener("keydown", function(event) {
   if (event.key === "Escape") {
     forceClosePhoto();
