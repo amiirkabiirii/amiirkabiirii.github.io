@@ -220,22 +220,15 @@
       font-size: 1.6rem;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 4px;
-    }
-    .name-en {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      direction: ltr;
-      margin-bottom: 18px;
+      margin-bottom: 6px;
     }
 
     .professional-title {
       color: var(--pharm-green);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 600;
-      margin-top: 6px;
-      margin-bottom: 18px;
+      margin-top: 4px;
+      margin-bottom: 20px;
     }
 
     /* برچسب‌های بیوگرافی */
@@ -528,12 +521,11 @@
       <div class="rx-symbol" title="Medical Prescription">℞</div>
     </div>
 
-    <!-- اسامی -->
+    <!-- نام و عنوان تخصصی (تک‌زبانه بر اساس زبان انتخابی) -->
     <h1 class="name-fa" id="mainName">سید محمدتقی امیرکبیری</h1>
-    <div class="name-en" id="subName">Mohammad Taqi Amirkabiri</div>
 
-    <div class="professional-title">
-      PharmD Student | دانشجوی دکترای داروسازی
+    <div class="professional-title" data-fa="دانشجوی دکترای داروسازی" data-en="PharmD Student">
+      دانشجوی دکترای داروسازی
     </div>
 
     <!-- ویژگی‌ها و نشان‌ها -->
@@ -744,17 +736,12 @@ function toggleLanguage() {
   document.getElementById("langLabel").textContent = currentLang === "fa" ? "EN" : "FA";
 
   const mainName = document.getElementById("mainName");
-  const subName = document.getElementById("subName");
   if (currentLang === "en") {
     mainName.textContent = "Mohammad Taqi Amirkabiri";
     mainName.style.direction = "ltr";
-    subName.textContent = "سید محمدتقی امیرکبیری";
-    subName.style.direction = "rtl";
   } else {
     mainName.textContent = "سید محمدتقی امیرکبیری";
     mainName.style.direction = "rtl";
-    subName.textContent = "Mohammad Taqi Amirkabiri";
-    subName.style.direction = "ltr";
   }
 
   document.querySelectorAll("[data-fa][data-en]").forEach(el => {
