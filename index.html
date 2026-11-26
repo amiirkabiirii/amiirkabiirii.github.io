@@ -87,15 +87,13 @@
   <style>
     :root {
       --bg-dark: #090d16;
-      --card-bg: rgba(17, 24, 39, 0.85);
-      --card-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(17, 24, 39, 0.82);
+      --card-border: rgba(255, 255, 255, 0.09);
       --primary: #0ea5e9;
       --pharm-green: #10b981;
       --pharm-glow: rgba(16, 185, 129, 0.25);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --btn-bg: rgba(30, 41, 59, 0.6);
-      --btn-hover: rgba(51, 65, 85, 0.85);
     }
 
     * {
@@ -108,8 +106,9 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+        radial-gradient(at 50% 45%, rgba(56, 189, 248, 0.05) 0px, transparent 60%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -122,12 +121,14 @@
       width: 100%;
       max-width: 580px;
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
       border: 1px solid var(--card-border);
       border-radius: 28px;
       padding: 38px 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
       text-align: center;
       position: relative;
     }
@@ -154,31 +155,117 @@
     .delay-4 { animation-delay: 0.30s; }
     .delay-5 { animation-delay: 0.38s; }
 
-    /* دکمه تغییر زبان در گوشه بالا-راست */
+    /* استایل پایه شیشه مایع (Liquid Glass Material) */
+    .liquid-glass {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.09) 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        rgba(255, 255, 255, 0.06) 100%
+      );
+      backdrop-filter: blur(16px) saturate(175%);
+      -webkit-backdrop-filter: blur(16px) saturate(175%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.35),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.28),
+        inset 0 0 12px rgba(255, 255, 255, 0.04);
+      transition:
+        transform 0.42s cubic-bezier(0.22, 1.35, 0.36, 1),
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+      will-change: transform;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* لایه درخشش پویا بر اساس موقعیت ماوس (Specular Glint) */
+    .liquid-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        150px circle at var(--gx, 50%) var(--gy, 50%),
+        rgba(255, 255, 255, 0.26),
+        rgba(56, 189, 248, 0.08) 45%,
+        transparent 75%
+      );
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* نوار انعکاس شیشه‌ای مورب */
+    .liquid-glass::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 80%
+      );
+      transform: skewX(-20deg);
+      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .liquid-glass:hover::before {
+      opacity: 1;
+    }
+
+    .liquid-glass:hover::after {
+      left: 160%;
+    }
+
+    .liquid-glass:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.34),
+        0 0 18px rgba(14, 165, 233, 0.16),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.48),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .liquid-glass > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* دکمه تغییر زبان شیشه مایع در گوشه بالا-راست */
     .lang-toggle-btn {
       position: absolute;
       top: 22px;
       right: 22px;
       height: 40px;
       padding: 0 14px;
-      border-radius: 12px;
-      background: rgba(14, 165, 233, 0.12);
-      border: 1px solid rgba(14, 165, 233, 0.3);
-      color: #38bdf8;
+      border-radius: 9999px;
+      color: #7dd3fc;
       font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.3s ease;
       direction: ltr;
-      z-index: 2;
-    }
-    .lang-toggle-btn:hover {
-      background: rgba(14, 165, 233, 0.22);
-      box-shadow: 0 0 15px rgba(14, 165, 233, 0.25);
-      transform: scale(1.04);
+      z-index: 3;
+      background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.22) 0%,
+        rgba(14, 165, 233, 0.08) 100%
+      );
+      border-color: rgba(56, 189, 248, 0.32);
     }
 
     /* نماد داروسازی در گوشه کارت */
@@ -188,19 +275,24 @@
       left: 22px;
       width: 40px;
       height: 40px;
-      border-radius: 12px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 50%;
+      background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.2) 0%,
+        rgba(16, 185, 129, 0.06) 100%
+      );
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.28);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--pharm-green);
       transition: all 0.3s ease;
-      z-index: 2;
+      z-index: 3;
     }
     .pharmacy-icon-badge:hover {
-      box-shadow: 0 0 15px var(--pharm-glow);
-      transform: scale(1.05);
+      box-shadow: 0 0 16px var(--pharm-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transform: scale(1.06);
     }
 
     /* کادر تصویر پروفایل */
@@ -216,8 +308,8 @@
       border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      border: 3px solid rgba(16, 185, 129, 0.4);
-      box-shadow: 0 0 20px var(--pharm-glow);
+      border: 3px solid rgba(16, 185, 129, 0.45);
+      box-shadow: 0 0 24px var(--pharm-glow);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
@@ -266,8 +358,9 @@
       margin-bottom: 28px;
     }
     .tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
       color: #e2e8f0;
       font-size: 0.95rem;
       padding: 8px 16px;
@@ -308,7 +401,7 @@
     .links-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 11px;
     }
 
     .link-card {
@@ -316,24 +409,15 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 13px 18px;
-      background: var(--btn-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
+      padding: 13px 20px;
+      border-radius: 16px;
       color: var(--text-main);
       text-decoration: none;
       font-size: 0.96rem;
       font-weight: 500;
-      transition: all 0.25s ease;
       cursor: pointer;
       width: 100%;
       text-align: center;
-    }
-    .link-card:hover {
-      background: var(--btn-hover);
-      border-color: rgba(14, 165, 233, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     /* استایل آیکون و عنوان کارت */
@@ -351,17 +435,25 @@
       transition: transform 0.2s ease;
     }
     .link-card:hover .platform-icon {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
-    /* استایل دکمه ذخیره مخاطب */
+    /* دکمه ذخیره مخاطب با ته-رنگ شیشه‌ای سبز زمردی (Tinted Glass) */
     .vcard-btn {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(14, 165, 233, 0.14));
-      border-color: rgba(16, 185, 129, 0.38);
+      background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.24) 0%,
+        rgba(14, 165, 233, 0.14) 55%,
+        rgba(16, 185, 129, 0.18) 100%
+      );
+      border-color: rgba(52, 211, 153, 0.42);
     }
     .vcard-btn:hover {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.28), rgba(14, 165, 233, 0.24));
-      border-color: rgba(16, 185, 129, 0.65);
+      border-color: rgba(52, 211, 153, 0.72);
+      box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.35),
+        0 0 22px rgba(16, 185, 129, 0.25),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55);
     }
 
     .copy-mini-btn {
@@ -371,15 +463,15 @@
       width: 26px;
       height: 26px;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       color: var(--text-muted);
       transition: all 0.2s ease;
     }
     .link-card:hover .copy-mini-btn {
       color: #ffffff;
-      background: rgba(234, 67, 53, 0.22);
-      border-color: rgba(234, 67, 53, 0.4);
+      background: rgba(234, 67, 53, 0.26);
+      border-color: rgba(234, 67, 53, 0.45);
     }
 
     footer {
@@ -395,14 +487,19 @@
       bottom: 28px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(16, 185, 129, 0.5);
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(16, 185, 129, 0.55);
       color: #34d399;
       padding: 10px 20px;
       border-radius: 9999px;
       font-size: 0.9rem;
       font-weight: 600;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 18px var(--pharm-glow);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.55),
+        0 0 18px var(--pharm-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
       opacity: 0;
       pointer-events: none;
       transition: all 0.28s ease;
@@ -508,8 +605,8 @@
 
   <div class="container">
     
-    <!-- دکمه تغییر زبان FA / EN -->
-    <button type="button" class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" aria-label="Switch Language">
+    <!-- دکمه تغییر زبان FA / EN با افکت شیشه مایع -->
+    <button type="button" class="lang-toggle-btn liquid-glass" id="langToggle" onclick="toggleLanguage()" aria-label="Switch Language">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"></circle>
         <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -574,8 +671,8 @@
         <span data-fa="ارتباط مستقیم و صفحات شخصی" data-en="Direct Contact & Personal Profiles">ارتباط مستقیم و صفحات شخصی</span>
       </div>
       <div class="links-grid">
-        <!-- دکمه ذخیره در مخاطبین (vCard) -->
-        <button type="button" onclick="downloadVCard()" class="link-card vcard-btn">
+        <!-- دکمه ذخیره در مخاطبین (vCard) با افکت شیشه مایع -->
+        <button type="button" onclick="downloadVCard()" class="link-card liquid-glass vcard-btn">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -588,7 +685,7 @@
         </button>
 
         <!-- جیمیل با قابلیت کپی خودکار + باز کردن ایمیل -->
-        <a href="mailto:amiirkabiirii@gmail.com" onclick="handleEmailClick(event)" class="link-card">
+        <a href="mailto:amiirkabiirii@gmail.com" onclick="handleEmailClick(event)" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -604,7 +701,7 @@
           </span>
         </a>
 
-        <a href="https://t.me/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://t.me/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#38bdf8">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -613,7 +710,7 @@
           </span>
         </a>
 
-        <a href="https://www.instagram.com/dramirkabiri/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://www.instagram.com/dramirkabiri/" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -624,7 +721,7 @@
           </span>
         </a>
 
-        <a href="https://youtube.com/@dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://youtube.com/@dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#f87171">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -633,7 +730,7 @@
           </span>
         </a>
 
-        <a href="https://eitaa.com/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://eitaa.com/Dramirkabiri" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -650,7 +747,7 @@
         <span data-fa="کانال‌های شخصی و یادداشت‌ها" data-en="Personal Channels & Notes">کانال‌های شخصی و یادداشت‌ها</span>
       </div>
       <div class="links-grid">
-        <a href="https://t.me/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://t.me/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#38bdf8">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -658,7 +755,7 @@
             <span data-fa="کانال تلگرام" data-en="Telegram Channel">کانال تلگرام</span>
           </span>
         </a>
-        <a href="https://eitaa.com/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://eitaa.com/amiirkabiirii" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -675,7 +772,7 @@
         <span data-fa="آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)" data-en="English Language Learning & Q&A (ZabanTBZ)">آموزش و رفع اشکال زبان انگلیسی (ZabanTBZ)</span>
       </div>
       <div class="links-grid">
-        <a href="https://t.me/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://t.me/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#38bdf8">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -683,7 +780,7 @@
             <span data-fa="کانال Zabantbz در تلگرام" data-en="Zabantbz Telegram Channel">کانال Zabantbz در تلگرام</span>
           </span>
         </a>
-        <a href="https://eitaa.com/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://eitaa.com/zabantbz" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -691,7 +788,7 @@
             <span data-fa="کانال Zabantbz در ایتا" data-en="Zabantbz Eitaa Channel">کانال Zabantbz در ایتا</span>
           </span>
         </a>
-        <a href="https://t.me/zabantbzgr" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://t.me/zabantbzgr" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#38bdf8">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -699,7 +796,7 @@
             <span data-fa="گروه رفع اشکال زبان در تلگرام" data-en="English Q&A Group on Telegram">گروه رفع اشکال زبان در تلگرام</span>
           </span>
         </a>
-        <a href="https://eitaa.com/joinchat/1822360005Ce1ab2c8e89" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://eitaa.com/joinchat/1822360005Ce1ab2c8e89" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -716,7 +813,7 @@
         <span data-fa="تلاوت‌های استاد عبدالباسط" data-en="Quran Recitations by Master Abdul Basit">تلاوت‌های استاد عبدالباسط</span>
       </div>
       <div class="links-grid">
-        <a href="https://t.me/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://t.me/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="#38bdf8">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -724,7 +821,7 @@
             <span data-fa="کانال تلاوت‌ها در تلگرام" data-en="Recitations Channel on Telegram">کانال تلاوت‌ها در تلگرام</span>
           </span>
         </a>
-        <a href="https://eitaa.com/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card">
+        <a href="https://eitaa.com/abdollbaset_Quran" target="_blank" rel="noopener noreferrer" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -844,6 +941,37 @@ function toggleLanguage() {
     el.textContent = el.getAttribute(currentLang === "fa" ? "data-fa" : "data-en");
   });
 }
+
+/* 4. موتور تعاملی شیشه مایع (Liquid Glass Glint & Elastic Pull) */
+document.querySelectorAll(".liquid-glass").forEach(btn => {
+  btn.addEventListener("pointermove", (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    btn.style.setProperty("--gx", `${x}px`);
+    btn.style.setProperty("--gy", `${y}px`);
+
+    const nx = (x / rect.width - 0.5) * 2;
+    const ny = (y / rect.height - 0.5) * 2;
+    const pullX = nx * 4.5;
+    const pullY = ny * 3.5 - 2;
+    const scaleX = 1 + Math.abs(nx) * 0.012;
+    const scaleY = 1 - Math.abs(nx) * 0.008;
+
+    btn.style.transition = "transform 0.08s ease-out, border-color 0.25s ease, box-shadow 0.25s ease";
+    btn.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0) scale(${scaleX.toFixed(4)}, ${scaleY.toFixed(4)})`;
+  });
+
+  btn.addEventListener("pointerdown", () => {
+    btn.style.transform = "scale(0.975)";
+  });
+
+  btn.addEventListener("pointerleave", () => {
+    btn.style.transition = "transform 0.5s cubic-bezier(0.22, 1.4, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease";
+    btn.style.transform = "translate3d(0, 0, 0) scale(1, 1)";
+  });
+});
 
 /* پاپ‌آپ تصویر پروفایل */
 function openPhoto() {
