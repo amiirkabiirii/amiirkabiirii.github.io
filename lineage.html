@@ -273,21 +273,6 @@
       );
     }
 
-    .btn-gold {
-      border-color: rgba(251, 191, 36, 0.42);
-      color: var(--gold);
-      background: linear-gradient(
-        135deg,
-        rgba(251, 191, 36, 0.18) 0%,
-        rgba(245, 158, 11, 0.07) 100%
-      );
-    }
-
-    .btn-gold:hover {
-      border-color: rgba(251, 191, 36, 0.75);
-      color: #fde68a;
-    }
-
     /* سرعنوان دوره‌های تاریخی */
     .era-header {
       margin: 30px 0 16px;
@@ -423,10 +408,6 @@
       font-weight: 600;
     }
 
-    .doc-action {
-      margin-top: 12px;
-    }
-
     /* پیام عدم یافتن نتیجه */
     .empty-state {
       text-align: center;
@@ -441,101 +422,6 @@
       font-size: 0.78rem;
       color: #64748b;
       direction: ltr;
-    }
-
-    /* پاپ‌آپ سند تاریخی */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      padding: 16px;
-      overflow-y: auto;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-overlay.open {
-      display: flex;
-    }
-
-    .modal-box {
-      background: rgba(17, 24, 39, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 22px;
-      max-width: 860px;
-      width: 100%;
-      padding: 20px;
-      position: relative;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 25px rgba(251, 191, 36, 0.15);
-      animation: modalFade 0.25s ease-out;
-    }
-
-    @keyframes modalFade {
-      from { opacity: 0; transform: scale(0.94); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .modal-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .close-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: var(--text-main);
-      padding: 6px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .close-btn:hover {
-      background: rgba(239, 68, 68, 0.2);
-      border-color: #ef4444;
-      color: #fca5a5;
-    }
-
-    .doc-viewer {
-      text-align: center;
-      background: #090d16;
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 8px;
-      max-height: 68vh;
-      overflow: auto;
-    }
-
-    .doc-viewer img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .modal-caption {
-      margin-top: 14px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
     }
 
     @media (max-width: 600px) {
@@ -574,7 +460,6 @@
         <input type="text" id="searchInput" placeholder="جستجوی نام، لقب یا خاندان..." />
       </div>
       <button type="button" class="btn liquid-glass" id="filterNotableBtn">شخصیت‌های دارای عنوان و پیوند تاریخی</button>
-      <button type="button" class="btn liquid-glass btn-gold" id="openDocMainBtn">📜 سند نسب‌نامه امیرکبیر</button>
     </div>
 
     <div id="timelineContainer"></div>
@@ -582,22 +467,6 @@
     <footer>
       &copy; Mohammad Taqi Amirkabiri | dramirkabiri.ir
     </footer>
-  </div>
-
-  <!-- Modal for Historical Document -->
-  <div class="modal-overlay" id="docModal" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle">سند تاریخی پیوند خاندان امیرکبیری و میرزا تقی‌خان امیرکبیر</span>
-        <button type="button" class="close-btn" id="closeModalBtn">بستن ✕</button>
-      </div>
-      <div class="doc-viewer">
-        <img src="amirkabir-doc.jpg" alt="شجره‌نامه پیوند با میرزا تقی‌خان امیرکبیر" loading="lazy" />
-      </div>
-      <p class="modal-caption" id="modalCaption">
-        این سند نسب‌نامه، پیوند میان میرزا رفیع خان (مؤتمن دیوان، وکیل آذربایجان) و منورالدوله (امیرزاده خانم، دختر میرزا تقی‌خان امیرکبیر و جان‌جان خانم) و ادامه نسل آن را تا خاندان قاضی طباطبایی و نسل حاضر نشان می‌دهد.
-      </p>
-    </div>
   </div>
 
   <script>
@@ -650,7 +519,7 @@
         }
       },
       {
-        gen: 6, era: "qajar_modern", notable: true, hasDoc: true,
+        gen: 6, era: "qajar_modern", notable: true,
         name: { fa: "میرزا رفیع (مؤتمن دیوان)", en: "Mirza Rafi (Motamen Divan)" },
         title: { fa: "وکیل آذربایجان", en: "Representative (Vakil) of Azerbaijan" },
         note: null,
@@ -892,26 +761,6 @@
     const searchInput = document.getElementById("searchInput");
     const filterBtn = document.getElementById("filterNotableBtn");
     const langBtn = document.getElementById("langToggleBtn");
-    const docModal = document.getElementById("docModal");
-
-    function openModal() {
-      docModal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal() {
-      docModal.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-
-    document.getElementById("openDocMainBtn").addEventListener("click", openModal);
-    document.getElementById("closeModalBtn").addEventListener("click", closeModal);
-    docModal.addEventListener("click", (e) => {
-      if (e.target === docModal) closeModal();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
 
     /* موتور افکت Liquid Glass برای دکمه‌ها */
     function initLiquidGlass(root = document) {
@@ -968,18 +817,6 @@
         lang === "fa" ? "جستجوی نام، لقب یا خاندان..." : "Search name, title, or family...";
       filterBtn.textContent =
         lang === "fa" ? "شخصیت‌های دارای عنوان و پیوند تاریخی" : "Notable Figures & Alliances";
-      document.getElementById("openDocMainBtn").textContent =
-        lang === "fa" ? "📜 سند نسب‌نامه امیرکبیر" : "📜 Amir Kabir Lineage Document";
-      document.getElementById("modalTitle").textContent =
-        lang === "fa"
-          ? "سند تاریخی پیوند خاندان امیرکبیری و میرزا تقی‌خان امیرکبیر"
-          : "Historical Lineage Chart Connecting the Family to Mirza Taghi Khan Amir Kabir";
-      document.getElementById("modalCaption").textContent =
-        lang === "fa"
-          ? "این سند نسب‌نامه، پیوند میان میرزا رفیع خان (مؤتمن دیوان، وکیل آذربایجان) و منورالدوله (امیرزاده خانم، دختر میرزا تقی‌خان امیرکبیر و جان‌جان خانم) و ادامه نسل آن را تا خاندان قاضی طباطبایی و نسل حاضر نشان می‌دهد."
-          : "This genealogical chart documents the marriage alliance between Mirza Rafi Khan (Motamen Divan, Vakil of Azerbaijan) and Monavvar-od-Dowleh (daughter of Mirza Taghi Khan Amir Kabir and Jan-Jan Khanom), tracing the lineage down to the present generation.";
-      document.getElementById("closeModalBtn").textContent =
-        lang === "fa" ? "بستن ✕" : "Close ✕";
       document.getElementById("langLabel").textContent =
         lang === "fa" ? "EN" : "FA";
 
@@ -1020,7 +857,6 @@
 
         const genLabel = lang === "fa" ? `نسل ${person.gen}` : `Gen ${person.gen}`;
         const spouseLabel = lang === "fa" ? "همسر / پیوند نسبی:" : "Spouse / Lineage Link:";
-        const docBtnText = lang === "fa" ? "📜 مشاهده سند تصویری پیوند با امیرکبیر" : "📜 View Amir Kabir Lineage Document";
 
         card.innerHTML = `
           <div class="node-top">
@@ -1030,7 +866,6 @@
           ${person.title[lang] ? `<div class="title-tag">${person.title[lang]}</div>` : ""}
           ${person.note && person.note[lang] ? `<div class="note-text">${person.note[lang]}</div>` : ""}
           ${person.spouse ? `<div class="spouse"><strong>${spouseLabel}</strong> ${person.spouse[lang]}</div>` : ""}
-          ${person.hasDoc ? `<div class="doc-action"><button type="button" class="btn liquid-glass btn-gold" onclick="openModal()">${docBtnText}</button></div>` : ""}
         `;
 
         timelineDiv.appendChild(card);
