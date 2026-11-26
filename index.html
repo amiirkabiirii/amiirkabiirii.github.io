@@ -40,587 +40,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+  <link rel="stylesheet" href="/style.css">
   
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "سید محمدتقی امیرکبیری",
-  "givenName": "محمدتقی",
-  "familyName": "امیرکبیری",
-  "alternateName": [
-    "محمد تقی امیرکبیری",
-    "محمد تقی امیر کبیری",
-    "محمدتقی امیر کبیری",
-    "dramirkabiri",    
-    "dr amirkabiri",
-    "دکتر امیرکبیری",
-    "امیرکبیر",
-    "امیر کبیر",
-    "دکتر امیر کبیری",
-    "سید محمد تقی امیرکبیری",
-    "سید محمد تقی امیر کبیری",
-    "Mohammad Taqi Amirkabiri",
-    "Mohammad Taqi Amir Kabiri"
-  ],
-  "url": "https://dramirkabiri.ir/",
-  "image": {
-    "@type": "ImageObject",
-    "@id": "https://dramirkabiri.ir/#profileImage",
-    "url": "https://dramirkabiri.ir/profile.jpg",
-    "contentUrl": "https://dramirkabiri.ir/profile.jpg",
-    "caption": "سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی",
-    "inLanguage": "fa"
-  },
-  "jobTitle": "PharmD Student",
-  "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
-  "sameAs": [
-    "https://instagram.com/dramirkabiri/",
-    "https://youtube.com/@dramirkabiri",
-    "https://t.me/Dramirkabiri"
-  ]
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "سید محمدتقی امیرکبیری",
+    "givenName": "محمدتقی",
+    "familyName": "امیرکبیری",
+    "alternateName": [
+      "محمد تقی امیرکبیری",
+      "محمد تقی امیر کبیری",
+      "محمدتقی امیر کبیری",
+      "dramirkabiri",    
+      "dr amirkabiri",
+      "دکتر امیرکبیری",
+      "امیرکبیر",
+      "امیر کبیر",
+      "دکتر امیر کبیری",
+      "سید محمد تقی امیرکبیری",
+      "سید محمد تقی امیر کبیری",
+      "Mohammad Taqi Amirkabiri",
+      "Mohammad Taqi Amir Kabiri"
+    ],
+    "url": "https://dramirkabiri.ir/",
+    "image": {
+      "@type": "ImageObject",
+      "@id": "https://dramirkabiri.ir/#profileImage",
+      "url": "https://dramirkabiri.ir/profile.jpg",
+      "contentUrl": "https://dramirkabiri.ir/profile.jpg",
+      "caption": "سید محمدتقی امیرکبیری - دانشجوی دکترای داروسازی",
+      "inLanguage": "fa"
+    },
+    "jobTitle": "PharmD Student",
+    "description": "سید محمدتقی امیرکبیری، دانشجوی دکترای داروسازی.",
+    "sameAs": [
+      "https://instagram.com/dramirkabiri/",
+      "https://youtube.com/@dramirkabiri",
+      "https://t.me/Dramirkabiri"
+    ]
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="favicon.png">
-
-  <style>
-    :root {
-      --bg-dark: #090d16;
-      --card-bg: rgba(17, 24, 39, 0.82);
-      --card-border: rgba(255, 255, 255, 0.09);
-      --primary: #0ea5e9;
-      --pharm-green: #10b981;
-      --pharm-glow: rgba(16, 185, 129, 0.25);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
-        radial-gradient(at 50% 45%, rgba(56, 189, 248, 0.05) 0px, transparent 60%);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 16px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 580px;
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(140%);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 38px 24px;
-      box-shadow: 
-        0 25px 60px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      text-align: center;
-      position: relative;
-    }
-
-    /* انیمیشن ورود تدریجی */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-in {
-      opacity: 0;
-      animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .delay-1 { animation-delay: 0.05s; }
-    .delay-2 { animation-delay: 0.14s; }
-    .delay-3 { animation-delay: 0.22s; }
-    .delay-4 { animation-delay: 0.30s; }
-    .delay-5 { animation-delay: 0.38s; }
-    .delay-6 { animation-delay: 0.46s; }
-
-    /* استایل پایه شیشه مایع (Liquid Glass Material) */
-    .liquid-glass {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.09) 0%,
-        rgba(255, 255, 255, 0.03) 50%,
-        rgba(255, 255, 255, 0.06) 100%
-      );
-      backdrop-filter: blur(16px) saturate(175%);
-      -webkit-backdrop-filter: blur(16px) saturate(175%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow:
-        0 6px 20px rgba(0, 0, 0, 0.25),
-        inset 0 1.5px 1px rgba(255, 255, 255, 0.35),
-        inset 0 -1.5px 2px rgba(0, 0, 0, 0.28),
-        inset 0 0 12px rgba(255, 255, 255, 0.04);
-      transition:
-        transform 0.42s cubic-bezier(0.22, 1.35, 0.36, 1),
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-      will-change: transform;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* لایه درخشش پویا بر اساس موقعیت ماوس (Specular Glint) */
-    .liquid-glass::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(
-        150px circle at var(--gx, 50%) var(--gy, 50%),
-        rgba(255, 255, 255, 0.26),
-        rgba(56, 189, 248, 0.08) 45%,
-        transparent 75%
-      );
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* نوار انعکاس شیشه‌ای مورب */
-    .liquid-glass::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(
-        105deg,
-        transparent 20%,
-        rgba(255, 255, 255, 0.18) 50%,
-        transparent 80%
-      );
-      transform: skewX(-20deg);
-      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .liquid-glass:hover::before {
-      opacity: 1;
-    }
-
-    .liquid-glass:hover::after {
-      left: 160%;
-    }
-
-    .liquid-glass:hover {
-      border-color: rgba(255, 255, 255, 0.32);
-      box-shadow:
-        0 10px 26px rgba(0, 0, 0, 0.34),
-        0 0 18px rgba(14, 165, 233, 0.16),
-        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.48),
-        inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
-    }
-
-    .liquid-glass > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* دکمه تغییر زبان شیشه مایع در گوشه بالا-راست */
-    .lang-toggle-btn {
-      position: absolute;
-      top: 22px;
-      right: 22px;
-      height: 40px;
-      padding: 0 14px;
-      border-radius: 9999px;
-      color: #7dd3fc;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      direction: ltr;
-      z-index: 3;
-      background: linear-gradient(
-        135deg,
-        rgba(14, 165, 233, 0.22) 0%,
-        rgba(14, 165, 233, 0.08) 100%
-      );
-      border-color: rgba(56, 189, 248, 0.32);
-    }
-
-    /* نماد داروسازی در گوشه کارت */
-    .pharmacy-icon-badge {
-      position: absolute;
-      top: 22px;
-      left: 22px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(
-        135deg,
-        rgba(16, 185, 129, 0.2) 0%,
-        rgba(16, 185, 129, 0.06) 100%
-      );
-      border: 1px solid rgba(16, 185, 129, 0.32);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.28);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--pharm-green);
-      transition: all 0.3s ease;
-      z-index: 3;
-    }
-    .pharmacy-icon-badge:hover {
-      box-shadow: 0 0 16px var(--pharm-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-      transform: scale(1.06);
-    }
-
-    /* کادر تصویر پروفایل */
-    .avatar-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 16px;
-      margin-top: 12px;
-    }
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      border: 3px solid rgba(16, 185, 129, 0.45);
-      box-shadow: 0 0 24px var(--pharm-glow);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .profile-img:hover {
-      transform: scale(1.03);
-    }
-    .rx-symbol {
-      position: absolute;
-      bottom: 2px;
-      right: 4px;
-      background: var(--pharm-green);
-      color: #090d16;
-      font-weight: 800;
-      font-size: 0.8rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #111827;
-    }
-
-    /* نام و عنوان */
-    .name-fa {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .professional-title {
-      color: var(--pharm-green);
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-top: 4px;
-      margin-bottom: 20px;
-    }
-
-    /* برچسب‌های بیوگرافی */
-    .tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin-bottom: 28px;
-    }
-    .tag {
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-      font-size: 0.95rem;
-      padding: 8px 16px;
-      border-radius: 9999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .fi {
-      width: 1.4em;
-      line-height: 1em;
-      border-radius: 3px;
-      vertical-align: -0.1em;
-      margin: 0 1px;
-    }
-
-    /* دسته‌بندی لینک‌ها (چینش وسط) */
-    .section-title {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      margin: 26px 0 12px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .section-title::before,
-    .section-title::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--card-border);
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 11px;
-    }
-
-    .link-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 20px;
-      border-radius: 16px;
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 500;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* استایل آیکون و عنوان کارت */
-    .card-title-group {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-align: center;
-    }
-    .platform-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
-    .link-card:hover .platform-icon {
-      transform: scale(1.12);
-    }
-
-    /* دکمه ذخیره مخاطب با ته-رنگ شیشه‌ای سبز زمردی (Tinted Glass) */
-    .vcard-btn {
-      background: linear-gradient(
-        135deg,
-        rgba(16, 185, 129, 0.24) 0%,
-        rgba(14, 165, 233, 0.14) 55%,
-        rgba(16, 185, 129, 0.18) 100%
-      );
-      border-color: rgba(52, 211, 153, 0.42);
-    }
-    .vcard-btn:hover {
-      border-color: rgba(52, 211, 153, 0.72);
-      box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.35),
-        0 0 22px rgba(16, 185, 129, 0.25),
-        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55);
-    }
-
-    /* دکمه شجره‌نامه با ته-رنگ طلایی/کهربایی ملایم */
-    .lineage-btn {
-      background: linear-gradient(
-        135deg,
-        rgba(251, 191, 36, 0.16) 0%,
-        rgba(245, 158, 11, 0.06) 55%,
-        rgba(251, 191, 36, 0.12) 100%
-      );
-      border-color: rgba(251, 191, 36, 0.35);
-    }
-    .lineage-btn:hover {
-      border-color: rgba(251, 191, 36, 0.65);
-      box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.35),
-        0 0 20px rgba(251, 191, 36, 0.18),
-        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.5);
-    }
-
-    .copy-mini-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--text-muted);
-      transition: all 0.2s ease;
-    }
-    .link-card:hover .copy-mini-btn {
-      color: #ffffff;
-      background: rgba(234, 67, 53, 0.26);
-      border-color: rgba(234, 67, 53, 0.45);
-    }
-
-    footer {
-      margin-top: 32px;
-      font-size: 0.78rem;
-      color: #64748b;
-      direction: ltr;
-    }
-
-    /* اعلان کپی شدن ایمیل (Toast) */
-    .toast-notification {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(16, 185, 129, 0.55);
-      color: #34d399;
-      padding: 10px 20px;
-      border-radius: 9999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.55),
-        0 0 18px var(--pharm-glow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.28s ease;
-      z-index: 100000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .toast-notification.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* پاپ‌آپ سراسری در کل صفحه تب مرورگر */
-    .photo-modal {
-      display: none;
-      position: fixed;
-      z-index: 99999;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px 16px;
-      box-sizing: border-box;
-      direction: ltr;
-    }
-
-    .photo-modal.show {
-      display: flex;
-    }
-
-    .photo-dialog {
-      position: relative;
-      background: rgba(17, 24, 39, 0.95);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px var(--pharm-glow);
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 420px;
-      width: 90vw;
-      margin-bottom: 50px;
-      box-sizing: border-box;
-      animation: modalFadeIn 0.25s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.92);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .photo-modal img {
-      width: 100%;
-      height: auto;
-      max-height: 70vh;
-      object-fit: contain;
-      border-radius: 14px;
-      display: block;
-    }
-
-    .photo-close {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--card-border);
-      border-radius: 50%;
-      background: #1e293b;
-      color: #ffffff;
-      font-size: 22px;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-
-    .photo-close:hover {
-      background: #ef4444;
-      transform: scale(1.1);
-    }
-  </style>
 </head>
-<body>
+<body class="home-page">
 
   <div class="container">
     
@@ -634,7 +99,7 @@
       <span id="langLabel">EN</span>
     </button>
 
-    <!-- نماد هاون و جام داروسازی (Bowl of Hygieia & Rx) -->
+    <!-- نماد داروسازی -->
     <div class="pharmacy-icon-badge" title="نماد بین‌المللی داروسازی">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
@@ -658,7 +123,6 @@
         <div class="rx-symbol" title="Medical Prescription">℞</div>
       </div>
 
-      <!-- نام و عنوان تخصصی (تک‌زبانه بر اساس زبان انتخابی) -->
       <h1 class="name-fa" id="mainName">سید محمدتقی امیرکبیری</h1>
 
       <div class="professional-title" data-fa="دانشجوی دکترای داروسازی" data-en="PharmD Student">
@@ -690,7 +154,6 @@
         <span data-fa="ارتباط مستقیم و صفحات شخصی" data-en="Direct Contact & Personal Profiles">ارتباط مستقیم و صفحات شخصی</span>
       </div>
       <div class="links-grid">
-        <!-- دکمه ذخیره در مخاطبین (vCard) با افکت شیشه مایع -->
         <button type="button" onclick="downloadVCard()" class="link-card liquid-glass vcard-btn">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -703,7 +166,6 @@
           </span>
         </button>
 
-        <!-- جیمیل با قابلیت کپی خودکار + باز کردن ایمیل -->
         <a href="mailto:amiirkabiirii@gmail.com" onclick="handleEmailClick(event)" class="link-card liquid-glass">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -775,7 +237,7 @@
           </span>
         </a>
 
-        <a href="lineage.html" class="link-card liquid-glass lineage-btn">
+        <a href="/lineage" class="link-card liquid-glass lineage-btn">
           <span class="card-title-group">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -871,7 +333,7 @@
     <span id="toastText">ایمیل کپی شد!</span>
   </div>
 
-  <!-- پاپ‌آپ تصویر پروفایل در وسط و بالای تب مرورگر -->
+  <!-- پاپ‌آپ تصویر پروفایل -->
   <div id="photoModal" class="photo-modal" onclick="closePhoto(event)">
     <div class="photo-dialog" onclick="event.stopPropagation()">
       <button class="photo-close" onclick="forceClosePhoto()" aria-label="Close">
@@ -887,139 +349,6 @@
     </div>
   </div>
 
-<script>
-let currentLang = "fa";
-let toastTimer = null;
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  const toastText = document.getElementById("toastText");
-  toastText.textContent = message;
-  toast.classList.add("show");
-
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2800);
-}
-
-/* 1. دانلود کارت ویزیت (vCard .vcf) */
-function downloadVCard() {
-  const vcardLines = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    "N:Amirkabiri;Mohammad Taqi;;;",
-    "FN:Mohammad Taqi Amirkabiri",
-    "TITLE:PharmD Student",
-    "EMAIL;TYPE=INTERNET:amiirkabiirii@gmail.com",
-    "URL:https://dramirkabiri.ir/",
-    "END:VCARD"
-  ];
-  const blob = new Blob([vcardLines.join("\r\n")], { type: "text/vcard;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "Mohammad_Taqi_Amirkabiri.vcf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
-  showToast(currentLang === "fa" ? "فایل مخاطب دانلود شد!" : "Contact vCard downloaded!");
-}
-
-/* 2. کپی ایمیل در کلیپ‌بورد + باز کردن اپلیکیشن ایمیل */
-function handleEmailClick(event) {
-  const email = "amiirkabiirii@gmail.com";
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(email).catch(() => {});
-  } else {
-    const tempInput = document.createElement("input");
-    tempInput.value = email;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-  }
-  showToast(currentLang === "fa" ? "ایمیل کپی شد! (amiirkabiirii@gmail.com)" : "Email copied! (amiirkabiirii@gmail.com)");
-}
-
-/* 3. تغییر زبان دوگانه (FA / EN) */
-function toggleLanguage() {
-  currentLang = currentLang === "fa" ? "en" : "fa";
-  const htmlEl = document.documentElement;
-  htmlEl.setAttribute("lang", currentLang);
-  htmlEl.setAttribute("dir", currentLang === "fa" ? "rtl" : "ltr");
-
-  document.getElementById("langLabel").textContent = currentLang === "fa" ? "EN" : "FA";
-
-  const mainName = document.getElementById("mainName");
-  if (currentLang === "en") {
-    mainName.textContent = "Mohammad Taqi Amirkabiri";
-    mainName.style.direction = "ltr";
-  } else {
-    mainName.textContent = "سید محمدتقی امیرکبیری";
-    mainName.style.direction = "rtl";
-  }
-
-  document.querySelectorAll("[data-fa][data-en]").forEach(el => {
-    el.textContent = el.getAttribute(currentLang === "fa" ? "data-fa" : "data-en");
-  });
-}
-
-/* 4. موتور تعاملی شیشه مایع (Liquid Glass Glint & Elastic Pull) */
-document.querySelectorAll(".liquid-glass").forEach(btn => {
-  btn.addEventListener("pointermove", (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    btn.style.setProperty("--gx", `${x}px`);
-    btn.style.setProperty("--gy", `${y}px`);
-
-    const nx = (x / rect.width - 0.5) * 2;
-    const ny = (y / rect.height - 0.5) * 2;
-    const pullX = nx * 4.5;
-    const pullY = ny * 3.5 - 2;
-    const scaleX = 1 + Math.abs(nx) * 0.012;
-    const scaleY = 1 - Math.abs(nx) * 0.008;
-
-    btn.style.transition = "transform 0.08s ease-out, border-color 0.25s ease, box-shadow 0.25s ease";
-    btn.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0) scale(${scaleX.toFixed(4)}, ${scaleY.toFixed(4)})`;
-  });
-
-  btn.addEventListener("pointerdown", () => {
-    btn.style.transform = "scale(0.975)";
-  });
-
-  btn.addEventListener("pointerleave", () => {
-    btn.style.transition = "transform 0.5s cubic-bezier(0.22, 1.4, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease";
-    btn.style.transform = "translate3d(0, 0, 0) scale(1, 1)";
-  });
-});
-
-/* پاپ‌آپ تصویر پروفایل */
-function openPhoto() {
-  document.getElementById("photoModal").classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-
-function forceClosePhoto() {
-  document.getElementById("photoModal").classList.remove("show");
-  document.body.style.overflow = "";
-}
-
-function closePhoto(event) {
-  if (event.target.id === "photoModal") {
-    forceClosePhoto();
-  }
-}
-
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    forceClosePhoto();
-  }
-});
-</script>
+  <script src="/app.js" defer></script>
 </body>
 </html>
