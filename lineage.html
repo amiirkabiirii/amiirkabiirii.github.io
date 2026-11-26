@@ -1,1 +1,1066 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شجره‌نامه و تبارنامه | سید محمدتقی امیرکبیری</title>
+  <meta name="description" content="شجره‌نامه و تبارنامه ۳۷ نسلی سادات طباطبایی تبریز و خاندان امیرکبیری تا امیرالمؤمنین (ع) - سید محمدتقی امیرکبیری" />
+  <link rel="canonical" href="https://dramirkabiri.ir/lineage.html" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.82);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --primary: #0ea5e9;
+      --pharm-green: #10b981;
+      --pharm-glow: rgba(16, 185, 129, 0.25);
+      --gold: #fbbf24;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+        radial-gradient(at 50% 45%, rgba(56, 189, 248, 0.05) 0px, transparent 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.75;
+      padding: 28px 16px 60px;
+    }
+
+    .main-wrapper {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 32px 24px 40px;
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      position: relative;
+    }
+
+    /* استایل پایه شیشه مایع (Liquid Glass Material) */
+    .liquid-glass {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.09) 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        rgba(255, 255, 255, 0.06) 100%
+      );
+      backdrop-filter: blur(16px) saturate(175%);
+      -webkit-backdrop-filter: blur(16px) saturate(175%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.35),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.28),
+        inset 0 0 12px rgba(255, 255, 255, 0.04);
+      transition:
+        transform 0.42s cubic-bezier(0.22, 1.35, 0.36, 1),
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+      will-change: transform;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .liquid-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        150px circle at var(--gx, 50%) var(--gy, 50%),
+        rgba(255, 255, 255, 0.26),
+        rgba(56, 189, 248, 0.08) 45%,
+        transparent 75%
+      );
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .liquid-glass::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 80%
+      );
+      transform: skewX(-20deg);
+      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .liquid-glass:hover::before { opacity: 1; }
+    .liquid-glass:hover::after { left: 160%; }
+
+    .liquid-glass:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.34),
+        0 0 18px rgba(14, 165, 233, 0.16),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.48),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .liquid-glass > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* نوار ناوبری بالا */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--card-border);
+      gap: 12px;
+    }
+
+    .back-link {
+      height: 40px;
+      padding: 0 16px;
+      border-radius: 9999px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-toggle-btn {
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      color: #7dd3fc;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      direction: ltr;
+      background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.22) 0%,
+        rgba(14, 165, 233, 0.08) 100%
+      );
+      border-color: rgba(56, 189, 248, 0.32);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* بخش کنترل‌ها و جستجو */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+      max-width: 340px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-main);
+      padding: 11px 16px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+    }
+
+    .btn {
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn.active {
+      border-color: rgba(56, 189, 248, 0.65);
+      color: #7dd3fc;
+      background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.22) 0%,
+        rgba(14, 165, 233, 0.08) 100%
+      );
+    }
+
+    .btn-gold {
+      border-color: rgba(251, 191, 36, 0.42);
+      color: var(--gold);
+      background: linear-gradient(
+        135deg,
+        rgba(251, 191, 36, 0.18) 0%,
+        rgba(245, 158, 11, 0.07) 100%
+      );
+    }
+
+    .btn-gold:hover {
+      border-color: rgba(251, 191, 36, 0.75);
+      color: #fde68a;
+    }
+
+    /* سرعنوان دوره‌های تاریخی */
+    .era-header {
+      margin: 30px 0 16px;
+      padding: 10px 16px;
+      background: linear-gradient(
+        90deg,
+        rgba(14, 165, 233, 0.12) 0%,
+        rgba(16, 185, 129, 0.06) 100%
+      );
+      border-inline-start: 4px solid var(--primary);
+      border-radius: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* خط زمانی (Timeline) */
+    .timeline {
+      position: relative;
+      padding-inline-start: 28px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      inset-inline-start: 9px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--pharm-green), var(--primary), rgba(255, 255, 255, 0.12));
+      border-radius: 2px;
+    }
+
+    .node {
+      position: relative;
+      margin-bottom: 14px;
+      background: rgba(30, 41, 59, 0.52);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px 18px;
+      transition: all 0.25s ease;
+      animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .node:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(30, 41, 59, 0.72);
+      transform: translateY(-2px);
+    }
+
+    .node.notable {
+      border-inline-start: 3px solid var(--gold);
+    }
+
+    .node::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      inset-inline-start: -24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 2.5px solid var(--primary);
+      box-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
+    }
+
+    .node.notable::before {
+      border-color: var(--gold);
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    }
+
+    .node-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .gen-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      padding: 2px 10px;
+      border-radius: 9999px;
+    }
+
+    .name {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .title-tag {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .note-text {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .spouse {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.14);
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .spouse strong {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .doc-action {
+      margin-top: 12px;
+    }
+
+    /* پیام عدم یافتن نتیجه */
+    .empty-state {
+      text-align: center;
+      padding: 36px 16px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #64748b;
+      direction: ltr;
+    }
+
+    /* پاپ‌آپ سند تاریخی */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      padding: 16px;
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: rgba(17, 24, 39, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      max-width: 860px;
+      width: 100%;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 25px rgba(251, 191, 36, 0.15);
+      animation: modalFade 0.25s ease-out;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.94); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .modal-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+      color: #fca5a5;
+    }
+
+    .doc-viewer {
+      text-align: center;
+      background: #090d16;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 8px;
+      max-height: 68vh;
+      overflow: auto;
+    }
+
+    .doc-viewer img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .modal-caption {
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .main-wrapper {
+        padding: 24px 16px 32px;
+        border-radius: 22px;
+      }
+      h1 { font-size: 1.45rem; }
+      .timeline { padding-inline-start: 22px; }
+      .node::before { inset-inline-start: -18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <nav class="top-bar">
+      <a href="index.html" class="back-link liquid-glass" id="backLink">← بازگشت به صفحه اصلی</a>
+      <button type="button" class="lang-toggle-btn liquid-glass" id="langToggleBtn" aria-label="Switch Language">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="langLabel">EN</span>
+      </button>
+    </nav>
+
+    <header>
+      <div class="badge-pill" id="headerBadge">🏛 نسل ۶ام امیرکبیر • 🕋 نسل ۳۵ام امام حسن (ع)</div>
+      <h1 id="pageTitle">شجره‌نامه و تبارنامه</h1>
+      <p class="subtitle" id="pageSubtitle">۳۷ نسل پیوسته از سادات طباطبایی تبریز و خاندان امیرکبیری تا امیرالمؤمنین (ع)</p>
+    </header>
+
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="جستجوی نام، لقب یا خاندان..." />
+      </div>
+      <button type="button" class="btn liquid-glass" id="filterNotableBtn">شخصیت‌های دارای عنوان و پیوند تاریخی</button>
+      <button type="button" class="btn liquid-glass btn-gold" id="openDocMainBtn">📜 سند نسب‌نامه امیرکبیر</button>
+    </div>
+
+    <div id="timelineContainer"></div>
+
+    <footer>
+      &copy; Mohammad Taqi Amirkabiri | dramirkabiri.ir
+    </footer>
+  </div>
+
+  <!-- Modal for Historical Document -->
+  <div class="modal-overlay" id="docModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">سند تاریخی پیوند خاندان امیرکبیری و میرزا تقی‌خان امیرکبیر</span>
+        <button type="button" class="close-btn" id="closeModalBtn">بستن ✕</button>
+      </div>
+      <div class="doc-viewer">
+        <img src="amirkabir-doc.jpg" alt="شجره‌نامه پیوند با میرزا تقی‌خان امیرکبیر" loading="lazy" />
+      </div>
+      <p class="modal-caption" id="modalCaption">
+        این سند نسب‌نامه، پیوند میان میرزا رفیع خان (مؤتمن دیوان، وکیل آذربایجان) و منورالدوله (امیرزاده خانم، دختر میرزا تقی‌خان امیرکبیر و جان‌جان خانم) و ادامه نسل آن را تا خاندان قاضی طباطبایی و نسل حاضر نشان می‌دهد.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const lineageData = [
+      {
+        gen: 1, era: "qajar_modern", notable: true,
+        name: { fa: "سید محمدتقی امیرکبیری", en: "Seyed Mohammad Taghi Amirkabiri" },
+        title: { fa: "نسل حاضر", en: "Present Generation" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 2, era: "qajar_modern", notable: false,
+        name: { fa: "سید غلامرضا امیرکبیری", en: "Seyed Gholamreza Amirkabiri" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 3, era: "qajar_modern", notable: true,
+        name: { fa: "سید حسن امیرکبیری رازیان", en: "Seyed Hassan Amirkabiri Razian" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: {
+          fa: "بانو رفیعه قاضی طباطبایی (مهدوی فرخزاد)",
+          en: "Lady Rafieh Ghazi Tabatabaei (Mahdavi Farrokhzad)"
+        }
+      },
+      {
+        gen: 4, era: "qajar_modern", notable: true,
+        name: {
+          fa: "سید رضاقلی امیرکبیری (رضاقلی مؤتمنی طباطبایی)",
+          en: "Seyed Reza Gholi Amirkabiri (Reza Gholi Motameni Tabatabaei)"
+        },
+        title: { fa: "تمجیدالملک — سفیر ایران در آلمان", en: "Tamjid-ol-Molk — Ambassador of Iran to Germany" },
+        note: {
+          fa: "نام خانوادگی ایشان ابتدا «مؤتمنی طباطبایی» بود و بعدها به «امیرکبیری» تغییر یافت.",
+          en: "Originally bore the surname Motameni Tabatabaei, later changed to Amirkabiri."
+        },
+        spouse: null
+      },
+      {
+        gen: 5, era: "qajar_modern", notable: true,
+        name: { fa: "میرزا یوسف خان سرتیپ (مؤتمن نظام)", en: "Mirza Yousef Khan Sartip (Motamen Nezam)" },
+        title: { fa: "سرتیپ و مؤتمن نظام", en: "Brigadier General (Sartip)" },
+        note: null,
+        spouse: {
+          fa: "کوکب الحاجیه خانم، دختر میرزا مهدی قاضی طباطبایی (ترابی)",
+          en: "Kowkab-ol-Hajieh Khanom, daughter of Mirza Mehdi Ghazi Tabatabaei (Torabi)"
+        }
+      },
+      {
+        gen: 6, era: "qajar_modern", notable: true, hasDoc: true,
+        name: { fa: "میرزا رفیع (مؤتمن دیوان)", en: "Mirza Rafi (Motamen Divan)" },
+        title: { fa: "وکیل آذربایجان", en: "Representative (Vakil) of Azerbaijan" },
+        note: null,
+        spouse: {
+          fa: "منورالدوله (امیرزاده خانم)، دختر میرزا تقی‌خان امیرکبیر",
+          en: "Monavvar-od-Dowleh (Amirzadeh Khanom), daughter of Mirza Taghi Khan Amir Kabir"
+        }
+      },
+      {
+        gen: 7, era: "qajar_modern", notable: true,
+        name: { fa: "میرزا کاظم امین‌الرعایا", en: "Mirza Kazem Amin-or-Roaya" },
+        title: { fa: "مستوفی دفتر (به سال ۱۲۸۰ هـ.ق)", en: "State Accountant (Mostowfi-ye Daftar, 1280 AH)" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 8, era: "safavid_zand", notable: true,
+        name: { fa: "میرزا ابراهیم", en: "Mirza Ebrahim" },
+        title: { fa: "وکیل‌الرعایای آذربایجان", en: "Vakil-or-Roaya of Azerbaijan" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 9, era: "safavid_zand", notable: true,
+        name: { fa: "میرزا صدرا", en: "Mirza Sadra" },
+        title: { fa: "وکیل آذربایجان", en: "Vakil of Azerbaijan" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 10, era: "safavid_zand", notable: false,
+        name: { fa: "میرزا محمدعلی", en: "Mirza Mohammad Ali" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 11, era: "safavid_zand", notable: false,
+        name: { fa: "میرزا صدرالدین محمد", en: "Mirza Sadr-od-Din Mohammad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 12, era: "safavid_zand", notable: true,
+        name: { fa: "میرزا یوسف نقیب‌الاشراف", en: "Mirza Yousef Naghib-ol-Ashraf" },
+        title: { fa: "نقیب‌الاشراف", en: "Chief Marshal of the Nobility (Naghib-ol-Ashraf)" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 13, era: "safavid_zand", notable: false,
+        name: { fa: "میرزا صدرالدین محمد", en: "Mirza Sadr-od-Din Mohammad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 14, era: "safavid_zand", notable: false,
+        name: { fa: "مجدالدین", en: "Majd-od-Din" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 15, era: "safavid_zand", notable: false,
+        name: { fa: "سید اسماعیل", en: "Seyed Esmaeil" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 16, era: "safavid_zand", notable: true,
+        name: { fa: "امیر علی‌اکبر (معروف به میرشاه‌میر)", en: "Amir Ali Akbar (Mir Shah Mir)" },
+        title: { fa: "معروف به میرشاه‌میر", en: "Known as Mir Shah Mir" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 17, era: "safavid_zand", notable: false,
+        name: { fa: "امیر عبدالوهاب", en: "Amir Abdolvahhab" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 18, era: "safavid_zand", notable: false,
+        name: { fa: "امیر عبدالغفار", en: "Amir Abdolghaffar" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 19, era: "medieval", notable: true,
+        name: { fa: "السید عمادالدین امیرالحاج", en: "Al-Seyed Emad-od-Din Amir-ol-Hajj" },
+        title: { fa: "امیرالحاج", en: "Commander of the Hajj Pilgrimage" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 20, era: "medieval", notable: false,
+        name: { fa: "فخرالدین حسن", en: "Fakhr-od-Din Hassan" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 21, era: "medieval", notable: false,
+        name: { fa: "کمال‌الدین محمد", en: "Kamal-od-Din Mohammad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 22, era: "medieval", notable: false,
+        name: { fa: "السید حسن", en: "Al-Seyed Hassan" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 23, era: "medieval", notable: false,
+        name: { fa: "شهاب‌الدین علی", en: "Shahab-od-Din Ali" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 24, era: "medieval", notable: false,
+        name: { fa: "عمادالدین علی", en: "Emad-od-Din Ali" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 25, era: "medieval", notable: false,
+        name: { fa: "السید احمد", en: "Al-Seyed Ahmad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 26, era: "medieval", notable: false,
+        name: { fa: "السید عماد", en: "Al-Seyed Emad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 27, era: "medieval", notable: true,
+        name: { fa: "ابوالحسن علی الشاعر", en: "Abul-Hassan Ali al-Sha'er" },
+        title: { fa: "الشاعر", en: "The Poet" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 28, era: "medieval", notable: true,
+        name: { fa: "ابوالحسن محمد الشاعر", en: "Abul-Hassan Mohammad al-Sha'er" },
+        title: { fa: "الشاعر", en: "The Poet" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 29, era: "medieval", notable: true,
+        name: { fa: "ابوعبدالله احمد الشاعر", en: "Abu-Abdullah Ahmad al-Sha'er" },
+        title: { fa: "الشاعر", en: "The Poet" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 30, era: "early_islamic", notable: false,
+        name: { fa: "ابوجعفر محمد الاصغر", en: "Abu-Ja'far Mohammad al-Asghar" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 31, era: "early_islamic", notable: false,
+        name: { fa: "ابوعبدالله احمد", en: "Abu-Abdullah Ahmad" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 32, era: "early_islamic", notable: true,
+        name: { fa: "ابراهیم الطباطبا", en: "Ebrahim al-Tabataba" },
+        title: { fa: "نیای بزرگ سادات طباطبایی", en: "Patriarch of the Tabatabaei Sayyids" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 33, era: "early_islamic", notable: true,
+        name: { fa: "اسماعیل الدیباج", en: "Esmaeil al-Dibaj" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 34, era: "early_islamic", notable: false,
+        name: { fa: "ابراهیم الغمر", en: "Ebrahim al-Ghamr" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 35, era: "early_islamic", notable: true,
+        name: { fa: "حسن المثنی", en: "Hassan al-Muthanna" },
+        title: { fa: "", en: "" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 36, era: "early_islamic", notable: true,
+        name: { fa: "امام حسن مجتبی (علیه‌السلام)", en: "Imam Hassan al-Mujtaba (AS)" },
+        title: { fa: "سبط اکبر پیامبر (ص)", en: "Second Shia Imam" },
+        note: null,
+        spouse: null
+      },
+      {
+        gen: 37, era: "early_islamic", notable: true,
+        name: { fa: "امیرالمؤمنین علی بن ابی‌طالب (علیه‌السلام)", en: "Imam Ali ibn Abi Talib (AS)" },
+        title: { fa: "امیرالمؤمنین", en: "First Shia Imam" },
+        note: null,
+        spouse: null
+      }
+    ];
+
+    const eras = {
+      qajar_modern: { fa: "دوره قاجار و معاصر", en: "Qajar & Modern Era" },
+      safavid_zand: { fa: "دوره صفویه، افشاریه و زندیه", en: "Safavid, Afsharid & Zand Eras" },
+      medieval: { fa: "سده‌های میانی و شاعران آل طباطبا", en: "Medieval Era & Al-Tabataba Poets" },
+      early_islamic: { fa: "صدر اسلام و خاندان عصمت و طهارت", en: "Early Islamic Era & Ahl al-Bayt" }
+    };
+
+    let lang = "fa";
+    let onlyNotable = false;
+
+    const container = document.getElementById("timelineContainer");
+    const searchInput = document.getElementById("searchInput");
+    const filterBtn = document.getElementById("filterNotableBtn");
+    const langBtn = document.getElementById("langToggleBtn");
+    const docModal = document.getElementById("docModal");
+
+    function openModal() {
+      docModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      docModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("openDocMainBtn").addEventListener("click", openModal);
+    document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+    docModal.addEventListener("click", (e) => {
+      if (e.target === docModal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    /* موتور افکت Liquid Glass برای دکمه‌ها */
+    function initLiquidGlass(root = document) {
+      root.querySelectorAll(".liquid-glass").forEach(btn => {
+        if (btn.dataset.lgInit) return;
+        btn.dataset.lgInit = "1";
+
+        btn.addEventListener("pointermove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          btn.style.setProperty("--gx", `${x}px`);
+          btn.style.setProperty("--gy", `${y}px`);
+
+          const nx = (x / rect.width - 0.5) * 2;
+          const ny = (y / rect.height - 0.5) * 2;
+          const pullX = nx * 4;
+          const pullY = ny * 3 - 1.5;
+
+          btn.style.transition = "transform 0.08s ease-out, border-color 0.25s ease, box-shadow 0.25s ease";
+          btn.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0) scale(1.01)`;
+        });
+
+        btn.addEventListener("pointerdown", () => {
+          btn.style.transform = "scale(0.975)";
+        });
+
+        btn.addEventListener("pointerleave", () => {
+          btn.style.transition = "transform 0.5s cubic-bezier(0.22, 1.4, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease";
+          btn.style.transform = "translate3d(0, 0, 0) scale(1, 1)";
+        });
+      });
+    }
+
+    function render() {
+      const query = searchInput.value.trim().toLowerCase();
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+
+      document.getElementById("backLink").textContent =
+        lang === "fa" ? "← بازگشت به صفحه اصلی" : "← Back to Home";
+      document.getElementById("headerBadge").textContent =
+        lang === "fa"
+          ? "🏛 نسل ۶ام امیرکبیر • 🕋 نسل ۳۵ام امام حسن (ع)"
+          : "🏛 6th Gen of Amir Kabir • 🕋 35th Gen of Imam Hasan (AS)";
+      document.getElementById("pageTitle").textContent =
+        lang === "fa" ? "شجره‌نامه و تبارنامه" : "Genealogy & Ancestral Lineage";
+      document.getElementById("pageSubtitle").textContent =
+        lang === "fa"
+          ? "۳۷ نسل پیوسته از سادات طباطبایی تبریز و خاندان امیرکبیری تا امیرالمؤمنین (ع)"
+          : "37 Continuous Generations of the Tabatabaei Sayyids of Tabriz & Amirkabiri Family";
+      searchInput.placeholder =
+        lang === "fa" ? "جستجوی نام، لقب یا خاندان..." : "Search name, title, or family...";
+      filterBtn.textContent =
+        lang === "fa" ? "شخصیت‌های دارای عنوان و پیوند تاریخی" : "Notable Figures & Alliances";
+      document.getElementById("openDocMainBtn").textContent =
+        lang === "fa" ? "📜 سند نسب‌نامه امیرکبیر" : "📜 Amir Kabir Lineage Document";
+      document.getElementById("modalTitle").textContent =
+        lang === "fa"
+          ? "سند تاریخی پیوند خاندان امیرکبیری و میرزا تقی‌خان امیرکبیر"
+          : "Historical Lineage Chart Connecting the Family to Mirza Taghi Khan Amir Kabir";
+      document.getElementById("modalCaption").textContent =
+        lang === "fa"
+          ? "این سند نسب‌نامه، پیوند میان میرزا رفیع خان (مؤتمن دیوان، وکیل آذربایجان) و منورالدوله (امیرزاده خانم، دختر میرزا تقی‌خان امیرکبیر و جان‌جان خانم) و ادامه نسل آن را تا خاندان قاضی طباطبایی و نسل حاضر نشان می‌دهد."
+          : "This genealogical chart documents the marriage alliance between Mirza Rafi Khan (Motamen Divan, Vakil of Azerbaijan) and Monavvar-od-Dowleh (daughter of Mirza Taghi Khan Amir Kabir and Jan-Jan Khanom), tracing the lineage down to the present generation.";
+      document.getElementById("closeModalBtn").textContent =
+        lang === "fa" ? "بستن ✕" : "Close ✕";
+      document.getElementById("langLabel").textContent =
+        lang === "fa" ? "EN" : "FA";
+
+      container.innerHTML = "";
+      let currentEra = "";
+      let timelineDiv = null;
+      let count = 0;
+
+      lineageData.forEach((person) => {
+        if (onlyNotable && !person.notable) return;
+
+        const searchable = [
+          person.name.fa, person.name.en,
+          person.title.fa, person.title.en,
+          person.note ? person.note.fa : "",
+          person.note ? person.note.en : "",
+          person.spouse ? person.spouse.fa : "",
+          person.spouse ? person.spouse.en : ""
+        ].join(" ").toLowerCase();
+
+        if (query && !searchable.includes(query)) return;
+        count++;
+
+        if (person.era !== currentEra) {
+          currentEra = person.era;
+          const eraEl = document.createElement("div");
+          eraEl.className = "era-header";
+          eraEl.textContent = eras[currentEra][lang];
+          container.appendChild(eraEl);
+
+          timelineDiv = document.createElement("div");
+          timelineDiv.className = "timeline";
+          container.appendChild(timelineDiv);
+        }
+
+        const card = document.createElement("div");
+        card.className = `node ${person.notable ? "notable" : ""}`;
+
+        const genLabel = lang === "fa" ? `نسل ${person.gen}` : `Gen ${person.gen}`;
+        const spouseLabel = lang === "fa" ? "همسر / پیوند نسبی:" : "Spouse / Lineage Link:";
+        const docBtnText = lang === "fa" ? "📜 مشاهده سند تصویری پیوند با امیرکبیر" : "📜 View Amir Kabir Lineage Document";
+
+        card.innerHTML = `
+          <div class="node-top">
+            <span class="name">${person.name[lang]}</span>
+            <span class="gen-badge">${genLabel}</span>
+          </div>
+          ${person.title[lang] ? `<div class="title-tag">${person.title[lang]}</div>` : ""}
+          ${person.note && person.note[lang] ? `<div class="note-text">${person.note[lang]}</div>` : ""}
+          ${person.spouse ? `<div class="spouse"><strong>${spouseLabel}</strong> ${person.spouse[lang]}</div>` : ""}
+          ${person.hasDoc ? `<div class="doc-action"><button type="button" class="btn liquid-glass btn-gold" onclick="openModal()">${docBtnText}</button></div>` : ""}
+        `;
+
+        timelineDiv.appendChild(card);
+      });
+
+      if (count === 0) {
+        const emptyEl = document.createElement("div");
+        emptyEl.className = "empty-state";
+        emptyEl.textContent = lang === "fa"
+          ? "موردی مطابق با جستجوی شما یافت نشد."
+          : "No matching ancestors found.";
+        container.appendChild(emptyEl);
+      }
+
+      initLiquidGlass(container);
+    }
+
+    searchInput.addEventListener("input", render);
+    filterBtn.addEventListener("click", () => {
+      onlyNotable = !onlyNotable;
+      filterBtn.classList.toggle("active", onlyNotable);
+      render();
+    });
+    langBtn.addEventListener("click", () => {
+      lang = lang === "fa" ? "en" : "fa";
+      render();
+    });
+
+    initLiquidGlass(document);
+    render();
+  </script>
+</body>
+</html>
